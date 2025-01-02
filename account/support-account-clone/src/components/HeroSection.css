@@ -1,0 +1,30 @@
+.hero {
+    background: url(https://support.content.office.net/en-us/media/4ee76be2-dfde-4b30-9fd9-94e8aeb0cbf2.jpg);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+    font-size: 2.4em;
+  }
+  
+  .search-bar {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .search-bar input {
+    width: 60%;
+    padding: 14px;
+    border: none;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  .search-bar button {
+    background-color: #0067b8;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 0 3px 3px 0;
+  }
+  

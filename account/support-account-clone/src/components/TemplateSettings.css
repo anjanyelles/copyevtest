@@ -1,0 +1,50 @@
+/* General Container */
+.template-settings-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #4F4F4F;
+}
+
+/* Content Section */
+.content-section {
+    max-width: 800px;
+    margin-bottom: 40px;
+}
+
+/* Headings */
+.main-heading {
+    font-size: 24px;
+    font-weight: 300;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.sub-heading {
+    font-size: 20px;
+    font-weight: 300;
+    color: #000;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.section-heading {
+    font-size: 18px;
+    font-weight: 300;
+    color: #000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Description */
+.description {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Image */
+.placeholder-image {
+    width: 60%;
+    height: auto;
+    margin-bottom: 20px;
+}

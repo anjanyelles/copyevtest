@@ -1,0 +1,59 @@
+/* ViewApprovedSheets.css */
+
+.view-approved-sheets-container {
+    font-family: Arial, sans-serif;
+    margin: 20px auto;
+    padding: 20px;
+
+}
+
+
+.main-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.description {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #666;
+    line-height: 1.6;
+}
+
+.section-heading {
+    font-size: 20px;
+    margin: 20px 0 10px;
+    color: #444;
+    text-align: left;
+}
+
+.approved-sheets-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.approved-sheets-table th, 
+.approved-sheets-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.approved-sheets-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #333;
+}
+
+.approved-sheets-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.approved-sheets-table tr:hover {
+    background-color: #f1f1f1;
+}

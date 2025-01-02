@@ -1,0 +1,26 @@
+.trending-topics {
+    margin: 30px 0;
+  }
+  
+  .topics-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .topics-grid h3 {
+    margin: 10px 0;
+  }
+  
+  .topics-grid ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .topics-grid li {
+    color: #0067b8;
+    cursor: pointer;
+    margin: 12px 0;
+    font-weight: 500;
+  }
+  

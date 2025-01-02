@@ -1,0 +1,128 @@
+
+
+
+h2{
+    font-weight: 330;
+}
+
+
+.content h1, 
+.content h2, 
+.content h3 {
+  font-size: 26px; /* Adjust individually for smaller headings if needed */
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: 300;
+  font-family: "Segoe UI", Arial, "Helvetica Neue", Verdana, Helvetica, Sans-Serif;
+}
+
+
+
+
+.trand{
+  box-sizing: border-box;
+color: rgb(30, 30, 30);
+display: block;
+font-family: "Segoe UI Semibold", wf_segoe-ui_semibold, wf_segoe-ui_normal, "Segoe UI", "Segoe WP", Tahoma, Arial, sans-serif;
+font-size: 34px;
+font-weight: 400;
+height: 45px;
+line-height: 45.220001px;
+margin-block-end: 20px;
+margin-block-start: 26px;
+margin-bottom: 20px;
+margin-inline-end: 0px;
+margin-inline-start: 0px;
+margin-top: 26px;
+padding-bottom: 0px;
+text-align: center;
+width: 1191.59375px;
+}
+
+
+.fa-circle-chevron-down{
+  color: gray;
+}
+
+.fa-circle-chevron-up{
+  color: gray;
+}
+ul > li > a {
+  color: gray;
+}
+
+
+/* ViewSubmittedSheets.css */
+
+.view-submitted-sheets-container {
+  font-family: Arial, sans-serif;
+  margin: 20px auto;
+  padding: 20px;
+
+
+}
+
+
+.main-heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.sub-heading {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.description, .closing-text {
+  font-size: 16px;
+  margin: 10px 0;
+  color: #666;
+  line-height: 1.6;
+}
+
+.section-heading {
+  font-size: 20px;
+  margin: 20px 0 10px;
+  color: #444;
+  text-align: left;
+}
+
+.submitted-sheets-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.submitted-sheets-table th, 
+.submitted-sheets-table td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.submitted-sheets-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+  color: #333;
+}
+
+.submitted-sheets-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.submitted-sheets-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.placeholder-image {
+  margin: 20px 0;
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}

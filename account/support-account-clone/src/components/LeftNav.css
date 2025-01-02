@@ -1,0 +1,50 @@
+/* LeftNav.css */
+#supLeftNav {
+    padding: 16px;
+    background-color: #f9f9f9;
+    border-right: 1px solid #ddd;
+  }
+  
+  #supLeftNavDisplayTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+  
+  .supLeftNavCategory {
+    margin-bottom: 16px;
+  }
+  
+  .supLeftNavActiveCategory {
+    background-color: #e6f7ff;
+  }
+  
+  .supLeftNavCategoryTitle {
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .supLeftNavArticles {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .supLeftNavArticle {
+    margin: 8px 0;
+  }
+  
+  .supLeftNavLink {
+    text-decoration: none;
+    color: #0078d4;
+    font-size: 1rem;
+  }
+  
+  .supLeftNavLink:hover {
+    text-decoration: underline;
+  }
+  
+  .supLeftNavCurrentArticle .supLeftNavLink {
+    font-weight: bold;
+    color: #005a9e;
+  }
+  

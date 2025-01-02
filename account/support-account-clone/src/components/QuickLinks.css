@@ -1,0 +1,19 @@
+.quick-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px 0;
+  }
+  
+  .quick-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+  }
+  
+  .quick-link .icon {
+    font-size: 40px;
+  }
+  

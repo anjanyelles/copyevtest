@@ -1,0 +1,134 @@
+.footer {
+    background-color: #f9f9f9;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+  }
+  
+  .footer-section h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-section ul li {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  
+  .footer-bottom {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+  }
+  
+  .footer-bottom .language-selector {
+    margin-bottom: 10px;
+  }
+  
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-links li {
+    margin: 5px 10px;
+  }
+  
+  .footer-copyright {
+    margin-top: 10px;
+  }
+  
+  .social-media-icons {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+  }
+  
+  .social-media-icons li {
+    display: inline-block;
+  }
+  
+  .social-media-icons a {
+    font-size: 16px;
+    color: #000;
+    text-decoration: none;
+  }
+  
+  .social-media-icons a:hover {
+    color: #0073e6;
+  }
+  
+  /* Media Queries */
+  @media (max-width: 768px) {
+    .footer {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .footer-section {
+      min-width: 100%;
+      text-align: center;
+    }
+  
+    .footer-bottom {
+      text-align: center;
+      margin-top: 10px;
+    }
+  
+    .social-media-icons {
+      justify-content: center;
+    }
+  
+    .footer-section h4 {
+      font-size: 14px;
+    }
+  
+    .footer-section ul li {
+      font-size: 12px;
+    }
+  
+    .footer-copyright {
+      font-size: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .footer-section {
+      padding: 10px;
+    }
+  
+    .footer-section h4 {
+      font-size: 13px;
+    }
+  
+    .social-media-icons a {
+      font-size: 20px;
+    }
+  
+    .footer-copyright {
+      font-size: 9px;
+    }
+  }
+  
