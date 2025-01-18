@@ -35,7 +35,8 @@ const ImportOrCreateResume = () => {
                 <img
                     src="https://45323494.fs1.hubspotusercontent-na1.net/hubfs/45323494/Screenshot%202024-12-26%20175759-png-1.png"
                     alt="Import or Create Resume"
-                    className="placeholder-image"
+                    className="placeholder-image 
+ image_gatnix_support"
                 />
             </div>
         </div>

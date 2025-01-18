@@ -12,9 +12,9 @@ function ViewConsultantDetails() {
 
             {/* Image */}
             <img 
-                src="https://example.com/path/to/your/image.jpg" 
+                src="https://res.cloudinary.com/dvcdrb9s4/image/upload/v1736954748/Screenshot_2025-01-15_at_8.53.37_PM_wqk9mi.png" 
                 alt="View Consultant Details" 
-                style={{ width: "60%", height: "auto", marginBottom: "20px" }} 
+          className="image_gatnix_support"
             />
 
             <h3 style={{ fontSize: "20px", fontWeight: "300", color: "#000000", marginTop: "20px", marginBottom: "10px" }}>
@@ -33,9 +33,10 @@ function ViewConsultantDetails() {
                 </li>
             </ol>
             <img 
-                    src="https://via.placeholder.com/800x400" // Replace with your image URL
+                    src="https://res.cloudinary.com/dvcdrb9s4/image/upload/v1736961106/Screenshot_2025-01-15_at_10.41.33_PM_cknme5.png" // Replace with your image URL
                     alt="Create Approval Manager"
                     style={{ width: "60%", height: "auto", marginBottom: "20px" }}
+                    className='image_gatnix_support'
                 />
             <h3 style={{ fontSize: "20px", fontWeight: "300", color: "#000000", marginTop: "20px", marginBottom: "10px" }}>
                 Things to Remember

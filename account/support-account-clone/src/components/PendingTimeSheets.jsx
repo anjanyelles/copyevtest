@@ -12,27 +12,29 @@ const PendingTimeSheets = () => {
                 </p>
 
                 <h4 className="section-heading">Pending Sheets</h4>
-                <table className="pending-sheets-table">
-                    <thead>
-                        <tr>
-                            <th>T.ID</th>
-                            <th>Employee Name</th>
-                            <th>Period</th>
-                            <th>Total Hours</th>
-                            <th>Client</th>
-                            <th>End Client</th>
-                            <th>Status</th>
-                            <th>Comments</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td colSpan="8" className="no-data">
-                                No data available
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div className="table-wrapper">
+                    <table className="pending-sheets-table">
+                        <thead>
+                            <tr>
+                                <th>T.ID</th>
+                                <th>Employee Name</th>
+                                <th>Period</th>
+                                <th>Total Hours</th>
+                                <th>Client</th>
+                                <th>End Client</th>
+                                <th>Status</th>
+                                <th>Comments</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colSpan="8" className="no-data">
+                                    No data available
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
             </div>
         </div>

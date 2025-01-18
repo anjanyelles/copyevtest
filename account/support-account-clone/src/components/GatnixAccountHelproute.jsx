@@ -67,86 +67,74 @@ const GatnixAccountHelproute = () => {
   {/* Sidebar */}
 <div className="sidebar" style={{ flex: "0 0 20%", padding: "10px", background: "#f4f4f4" }}>
 
-  <ul style={{ listStyleType: "none", padding: 0 }}>
-    <li style={{ padding: "10px", cursor: "pointer" }}>
-      <span style={{ marginRight: "8px", fontWeight: "bold", color: "#0078D4" }}>1.</span>
-      <Link to="/GatnixAccountHelproute/sign-in-help" style={{ textDecoration: "none", color: "inherit" }}>
-        Sign In Help
-      </Link>
-    </li>
-    <li style={{ padding: "10px", cursor: "pointer" }}>
-      <span style={{ marginRight: "8px", fontWeight: "bold", color: "#0078D4" }}>2.</span>
-      <Link to="/GatnixAccountHelproute/troubleshooting" style={{ textDecoration: "none", color: "inherit" }}>
-        Troubleshooting
-      </Link>
-    </li>
-    <li style={{ padding: "10px", cursor: "pointer" }}>
-      <span style={{ marginRight: "8px", fontWeight: "bold", color: "#0078D4" }}>3.</span>
-      <Link to="/GatnixAccountHelproute/need-assistance" style={{ textDecoration: "none", color: "inherit" }}>
-        Need Further Assistance
-      </Link>
-    </li>
-    <li style={{ padding: "10px", cursor: "pointer" }}>
-      <span style={{ marginRight: "8px", fontWeight: "bold", color: "#0078D4" }}>4.</span>
-      <Link to="/GatnixAccountHelproute/what-is-account" style={{ textDecoration: "none", color: "inherit" }}>
-        What is an Account?
-      </Link>
-    </li>
-    <li style={{ padding: "10px", cursor: "pointer" }}>
-      <span style={{ marginRight: "8px", fontWeight: "bold", color: "#0078D4" }}>5.</span>
-      <Link to="/GatnixAccountHelproute/create-account" style={{ textDecoration: "none", color: "inherit" }}>
-        Create Account
-      </Link>
-    </li>
-    <li style={{ padding: "10px", cursor: "pointer" }}>
-      <span style={{ marginRight: "8px", fontWeight: "bold", color: "#0078D4" }}>6.</span>
-      <Link to="/GatnixAccountHelproute/password-recovery" style={{ textDecoration: "none", color: "inherit" }}>
-        Password Recovery
-      </Link>
-    </li>
-    <li style={{ padding: "10px", cursor: "pointer" }}>
-      <span style={{ marginRight: "8px", fontWeight: "bold", color: "#0078D4" }}>7.</span>
-      <Link to="/GatnixAccountHelproute/forgot-username" style={{ textDecoration: "none", color: "inherit" }}>
-        Forgot Username
-      </Link>
-    </li>
-    <li style={{ padding: "10px", cursor: "pointer" }}>
-      <span style={{ marginRight: "8px", fontWeight: "bold", color: "#0078D4" }}>8.</span>
-      <Link to="/GatnixAccountHelproute/verification" style={{ textDecoration: "none", color: "inherit" }}>
-        Verification
-      </Link>
-    </li>
-    <li style={{ padding: "10px", cursor: "pointer" }}>
-      <span style={{ marginRight: "8px", fontWeight: "bold", color: "#0078D4" }}>9.</span>
-      <Link to="/GatnixAccountHelproute/locked-accounts" style={{ textDecoration: "none", color: "inherit" }}>
-        Locked Accounts
-      </Link>
-    </li>
-    <li style={{ padding: "10px", cursor: "pointer" }}>
-      <span style={{ marginRight: "8px", fontWeight: "bold", color: "#0078D4" }}>10.</span>
-      <Link to="/GatnixAccountHelproute/security-tools" style={{ textDecoration: "none", color: "inherit" }}>
-        Security Tools
-      </Link>
-    </li>
-    <li style={{ padding: "10px", cursor: "pointer" }}>
-      <span style={{ marginRight: "8px", fontWeight: "bold", color: "#0078D4" }}>11.</span>
-      <Link to="/GatnixAccountHelproute/update-profile" style={{ textDecoration: "none", color: "inherit" }}>
-        Update Profile
-      </Link>
-    </li>
-    <li style={{ padding: "10px", cursor: "pointer" }}>
-      <span style={{ marginRight: "8px", fontWeight: "bold", color: "#0078D4" }}>12.</span>
-      <Link to="/GatnixAccountHelproute/linked-accounts" style={{ textDecoration: "none", color: "inherit" }}>
-        Linked Accounts
-      </Link>
-    </li>
-    <li style={{ padding: "10px", cursor: "pointer" }}>
-      <span style={{ marginRight: "8px", fontWeight: "bold", color: "#0078D4" }}>13.</span>
-      <Link to="/GatnixAccountHelproute/close-account" style={{ textDecoration: "none", color: "inherit" }}>
-        Close Account
-      </Link>
-    </li>
-  </ul>
+<ul style={{ listStyleType: "none", padding: 0 }}>
+  <li style={{ padding: "10px", cursor: "pointer" }}>
+    <Link to="/GatnixAccountHelproute/sign-in-help" style={{ textDecoration: "none", color: "inherit" }}>
+      1. Sign In Help
+    </Link>
+  </li>
+  <li style={{ padding: "10px", cursor: "pointer" }}>
+    <Link to="/GatnixAccountHelproute/troubleshooting" style={{ textDecoration: "none", color: "inherit" }}>
+      2. Troubleshooting
+    </Link>
+  </li>
+  <li style={{ padding: "10px", cursor: "pointer" }}>
+    <Link to="/GatnixAccountHelproute/need-assistance" style={{ textDecoration: "none", color: "inherit" }}>
+      3. Need Further Assistance
+    </Link>
+  </li>
+  <li style={{ padding: "10px", cursor: "pointer" }}>
+    <Link to="/GatnixAccountHelproute/what-is-account" style={{ textDecoration: "none", color: "inherit" }}>
+      4. What is an Account?
+    </Link>
+  </li>
+  <li style={{ padding: "10px", cursor: "pointer" }}>
+    <Link to="/GatnixAccountHelproute/create-account" style={{ textDecoration: "none", color: "inherit" }}>
+      5. Create Account
+    </Link>
+  </li>
+  <li style={{ padding: "10px", cursor: "pointer" }}>
+    <Link to="/GatnixAccountHelproute/password-recovery" style={{ textDecoration: "none", color: "inherit" }}>
+      6. Password Recovery
+    </Link>
+  </li>
+  <li style={{ padding: "10px", cursor: "pointer" }}>
+    <Link to="/GatnixAccountHelproute/forgot-username" style={{ textDecoration: "none", color: "inherit" }}>
+      7. Forgot Username
+    </Link>
+  </li>
+  <li style={{ padding: "10px", cursor: "pointer" }}>
+    <Link to="/GatnixAccountHelproute/verification" style={{ textDecoration: "none", color: "inherit" }}>
+      8. Verification
+    </Link>
+  </li>
+  <li style={{ padding: "10px", cursor: "pointer" }}>
+    <Link to="/GatnixAccountHelproute/locked-accounts" style={{ textDecoration: "none", color: "inherit" }}>
+      9. Locked Accounts
+    </Link>
+  </li>
+  <li style={{ padding: "10px", cursor: "pointer" }}>
+    <Link to="/GatnixAccountHelproute/security-tools" style={{ textDecoration: "none", color: "inherit" }}>
+      10. Security Tools
+    </Link>
+  </li>
+  <li style={{ padding: "10px", cursor: "pointer" }}>
+    <Link to="/GatnixAccountHelproute/update-profile" style={{ textDecoration: "none", color: "inherit" }}>
+      11. Update Profile
+    </Link>
+  </li>
+  <li style={{ padding: "10px", cursor: "pointer" }}>
+    <Link to="/GatnixAccountHelproute/linked-accounts" style={{ textDecoration: "none", color: "inherit" }}>
+      12. Linked Accounts
+    </Link>
+  </li>
+  <li style={{ padding: "10px", cursor: "pointer" }}>
+    <Link to="/GatnixAccountHelproute/close-account" style={{ textDecoration: "none", color: "inherit" }}>
+      13. Close Account
+    </Link>
+  </li>
+</ul>
+
 </div>
 
 

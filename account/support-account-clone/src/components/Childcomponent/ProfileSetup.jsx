@@ -15,7 +15,7 @@ const ProfileSetup = () => {
             <img 
                 src="https://45323494.fs1.hubspotusercontent-na1.net/hubfs/45323494/8-png-2.png"  // Replace with your image URL
                 alt="SAT Report Generation"
-                style={{ width: "60%", height: "auto", marginBottom: "20px" }} 
+          className="image_gatnix_support"
             />
 
             <h3 style={{ fontSize: "20px", fontWeight: "300", color: "#000000", marginTop: "20px", marginBottom: "10px" }}>
@@ -28,7 +28,7 @@ const ProfileSetup = () => {
             <img 
                 src="https://45323494.fs1.hubspotusercontent-na1.net/hubfs/45323494/9-png-1.png"  // Replace with your image URL
                 alt="SAT Report Generation"
-                style={{ width: "60%", height: "auto", marginBottom: "20px" }} 
+          className="image_gatnix_support"
             />
             <h3 style={{ fontSize: "20px", fontWeight: "300", color: "#000000", marginTop: "20px", marginBottom: "10px" }}>
                 2. Edit Your Profile
@@ -39,7 +39,7 @@ const ProfileSetup = () => {
             <img 
                 src="https://45323494.fs1.hubspotusercontent-na1.net/hubfs/45323494/13-png-1.png"  // Replace with your image URL
                 alt="SAT Report Generation"
-                style={{ width: "60%", height: "auto", marginBottom: "20px" }} 
+          className="image_gatnix_support"
             />
             <h3 style={{ fontSize: "20px", fontWeight: "300", color: "#000000", marginTop: "20px", marginBottom: "10px" }}>
                 3. Upload Your Resume
@@ -57,7 +57,7 @@ const ProfileSetup = () => {
             <img 
                 src="https://45323494.fs1.hubspotusercontent-na1.net/hubfs/45323494/Screenshot%202024-12-16%20183357-png-1.png"  // Replace with your image URL
                 alt="SAT Report Generation"
-                style={{ width: "60%", height: "auto", marginBottom: "20px" }} 
+          className="image_gatnix_support"
             />
             <h3 style={{ fontSize: "20px", fontWeight: "300", color: "#000000", marginTop: "20px", marginBottom: "10px" }}>
                 5. Add Your Educational and Work Experience
@@ -68,7 +68,7 @@ const ProfileSetup = () => {
             <img 
                 src="https://45323494.fs1.hubspotusercontent-na1.net/hubfs/45323494/10-png-1.png"  // Replace with your image URL
                 alt="SAT Report Generation"
-                style={{ width: "60%", height: "auto", marginBottom: "20px" }} 
+          className="image_gatnix_support"
             />
             <h3 style={{ fontSize: "20px", fontWeight: "300", color: "#000000", marginTop: "20px", marginBottom: "10px" }}>
                 6. Add Your Skills
@@ -77,7 +77,7 @@ const ProfileSetup = () => {
             <img 
                 src="https://45323494.fs1.hubspotusercontent-na1.net/hubfs/45323494/12-png-1.png"  // Replace with your image URL
                 alt="SAT Report Generation"
-                style={{ width: "60%", height: "auto", marginBottom: "20px" }} 
+          className="image_gatnix_support"
             />
             <p style={{ fontSize: "16px", lineHeight: "1.6", color: "#4F4F4F" }}>
                 To add new skills, click the <strong>Add Skill</strong> button. Enter the skill name, rating, and version, then click <strong>Save</strong>.
@@ -86,7 +86,7 @@ const ProfileSetup = () => {
             <img 
                 src="https://45323494.fs1.hubspotusercontent-na1.net/hubfs/45323494/11-png.png"  // Replace with your image URL
                 alt="SAT Report Generation"
-                style={{ width: "60%", height: "auto", marginBottom: "20px" }} 
+          className="image_gatnix_support"
             />
             <h3 style={{ fontSize: "20px", fontWeight: "300", color: "#000000", marginTop: "20px", marginBottom: "10px" }}>
                 7. Add Your Job Details

@@ -15,7 +15,7 @@ function UnderstandingBilling(props) {
                 <img 
                     src="https://45323494.fs1.hubspotusercontent-na1.net/hubfs/45323494/Screenshot%202024-12-21%20180239-png.png"  // Replace with your image URL
                     alt="Billing and Product Overview"
-                    style={{ width: "60%", height: "auto", marginBottom: "20px" }} 
+              className="image_gatnix_support"
                 />
 
                 <h3 style={{ fontSize: "20px", fontWeight: "300", color: "#000000", marginBottom: "10px" }}>

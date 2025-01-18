@@ -37,7 +37,8 @@ const AIResumeMatcher = () => {
                 <img
                     src="https://45323494.fs1.hubspotusercontent-na1.net/hubfs/45323494/Screenshot%202024-12-26%20180208-png.png"
                     alt="AI Resume Matcher"
-                    className="placeholder-image"
+                    className="placeholder-image 
+ image_gatnix_support"
                 />
             </div>
         </div>

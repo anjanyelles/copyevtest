@@ -28,3 +28,21 @@
     border-radius: 0 3px 3px 0;
   }
   
+.search-results_search{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+  .search-results{
+    background-color: white;
+    color: black;
+    width: 64%;
+    margin-top: 10px;
+
+
+  }
+  .liststyle{
+    list-style: none;
+
+  }

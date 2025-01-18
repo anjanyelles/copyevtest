@@ -14,7 +14,7 @@ function SchedulerLogs() {
             <img 
                 src="https://example.com/path/to/your/image.jpg" 
                 alt="Scheduler Logs Overview" 
-                style={{ width: "60%", height: "auto", marginBottom: "20px" }} 
+          className="image_gatnix_support"
             />
 
             <h3 style={{ fontSize: "20px", fontWeight: "300", color: "#000000", marginTop: "20px", marginBottom: "10px" }}>

@@ -3,6 +3,7 @@ import HeroSection from './HeroSection';
 import QuickLinks from './QuickLinks';
 import TrendingTopics from './TrendingTopics';
 import Header from './Header';
+import YoutubeContainer from './YoutubeContniner';
 
 function Timeline(props) {
     return (
@@ -10,6 +11,7 @@ function Timeline(props) {
         <Header />
         <HeroSection />
         <QuickLinks />
+        <YoutubeContainer />
         <TrendingTopics />
       </div>
   

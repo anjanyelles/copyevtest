@@ -11,11 +11,7 @@ function ViewEmployer() {
             </p>
 
             {/* Image */}
-            <img 
-                src="https://example.com/path/to/your/image.jpg" 
-                alt="View Employer Details" 
-                style={{ width: "60%", height: "auto", marginBottom: "20px" }} 
-            />
+            <img src="https://res.cloudinary.com/dvcdrb9s4/image/upload/v1736929069/Screenshot_2025-01-15_at_1.46.52_PM_vqnbwr.png" class="placeholder-image  image_gatnix_support" />
 
             <h3 style={{ fontSize: "20px", fontWeight: "300", color: "#000000", marginTop: "20px", marginBottom: "10px" }}>
                 How to View Employer Details
@@ -32,11 +28,11 @@ function ViewEmployer() {
                     <strong>3. View Employer Profile:</strong> Click the eye symbol to open and view the Employer's profile details.
                 </li>
             </ol>
-            <img 
+            {/* <img 
                     src="https://via.placeholder.com/800x400" // Replace with your image URL
                     alt="Create Approval Manager"
                     style={{ width: "60%", height: "auto", marginBottom: "20px" }}
-                />
+                /> */}
             <h3 style={{ fontSize: "20px", fontWeight: "300", color: "#000000", marginTop: "20px", marginBottom: "10px" }}>
                 Things to Remember
             </h3>

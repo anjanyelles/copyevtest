@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request to Approve Timesheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background-color: #f18622;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .content p {
+            margin: 15px 0;
+            font-size: 16px;
+        }
+
+        .content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .content ul li {
+            margin: 5px 0;
+            padding: 10px;
+            background: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+        }
+
+        .content ul li strong {
+            width: 120px;
+            display: inline-block;
+        }
+
+        .action {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .action a {
+            background: #0073e6;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Request to Approve Timesheet</h1>
+        </div>
+        <div class="content">
+            <p>Dear [Manager_Name] and [Admin_Name],</p>
+            <p>[Employee_Name] has submitted their timesheet for approval. Please find the details below:</p>
+            <ul>
+                <li><strong>Employee:</strong> [Employee_Name]</li>
+                <li><strong>Project Name:</strong> [XXXX]</li>
+                <li><strong>Project ID:</strong> [XXXX]</li>
+                <li><strong>Period:</strong> [Week_Start_Date] to [Week_End_Date]</li>
+                <li><strong>Total Hours:</strong> [XX.XX]</li>
+                <li><strong>Status:</strong> Pending Approval</li>
+                <li><strong>Submission Date:</strong> [Submit_Date]</li>
+            </ul>
+            <div class="action">
+                <a href="[Link_to_Timesheet]">Review and Approve</a>
+            </div>
+        </div>
+        <div class="footer">
+            <p>This is an automated notification from Gatnix Timesheet Management. Please do not reply.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -15,7 +15,7 @@ function ManageInvoices(props) {
                 <img 
                     src="https://via.placeholder.com/800x400"  // Replace with your image URL
                     alt="Invoices and Payment Management"
-                    style={{ width: "60%", height: "auto", marginBottom: "20px" }} 
+              className="image_gatnix_support"
                 />
 
                 <h3 style={{ fontSize: "20px", fontWeight: "300", color: "#000000", marginBottom: "10px" }}>

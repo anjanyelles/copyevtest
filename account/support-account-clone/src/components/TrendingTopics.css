@@ -24,3 +24,36 @@
     font-weight: 500;
   }
   
+
+/* Base styling for .itemwrapmedia */
+.itemwrapmedia {
+  display: flex;
+  flex-direction: row; /* Default to row */
+  margin: 20px;
+  align-items: flex-start;
+  gap: 2rem;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+/* Responsive styling for screens 600px or smaller */
+@media screen and (max-width: 600px) {
+  .itemwrapmedia {
+    flex-direction: column; /* Change to column layout */
+    margin: 10px;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+    text-align: center; /* Center text for smaller screens */
+  }
+  .itemwrapmedia > ul > li{
+    flex-direction: column; /* Change to column layout */
+    margin: 10px;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+    text-align: center; /* Center text for smaller screens */
+  }
+}
+
+

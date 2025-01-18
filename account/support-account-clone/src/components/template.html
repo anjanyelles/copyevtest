@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+font-family: Arial, sans-serif;
+color: #333333;
+line-height: 1.6;
+background-color: #f8f8f8;
+}
+
+.text-clr {
+color: #0073e6;
+}
+
+.view-btn {
+padding: 8px;
+background-color: #0073e6;
+border-radius: 4px;
+border: 1px solid #0073e6;
+}
+
+.contact-manager {
+background-color: #FAFAD2;
+padding: 10px;
+border-radius: 4px;
+}
+
+.container {
+max-width: 600px;
+margin: 0 auto;
+padding: 20px;
+background-color: #ffffff;
+border: 1px solid #dddddd;
+border-radius: 8px;
+}
+
+.header {
+background-color: #ffffff;
+display: flex;
+justify-content: center;
+}
+
+.header img {
+max-width: 100px;
+height: auto;
+}
+
+h2 {
+text-align: center;
+}
+
+.details {
+margin: 20px 0;
+padding-left: 20px;
+}
+
+.details li {
+list-style: none;
+padding: 5px;
+border-bottom: 1px solid silver;
+}
+
+.details-block {
+border: 1px solid silver;
+border-radius: 4px;
+padding: 1rem;
+background-color: #F5F5F5;
+}
+
+.list-item {
+display: flex;
+}
+
+.sub-hedding {
+width: 9rem;
+}
+
+.btn-text {
+font-weight: 500;
+color: white !important;
+text-decoration: none;
+}
+
+.footer {
+margin-top: 20px;
+text-align: center;
+font-size: 0.9em;
+color: #666666;
+}
+
+.gat-footer-title {
+font-weight: 700;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 768px) {
+body {
+font-size: 14px;
+}
+
+.container {
+max-width: 100%;
+padding: 10px;
+border: none;
+border-radius: 0;
+}
+
+.header img {
+max-width: 80px;
+}
+
+h2 {
+font-size: 18px;
+}
+
+.details-block {
+padding: 10px;
+}
+
+
+
+.list-item {
+display: block;
+padding-bottom: 10px;
+}
+
+.sub-hedding {
+width: auto;
+font-weight: bold;
+display: inline-block;
+margin-right: 5px;
+}
+
+.view-btn {
+padding: 10px;
+width: 100%;
+text-align: center;
+}
+
+.btn-text {
+display: block;
+padding: 10px 0;
+}
+
+.footer {
+font-size: 12px;
+}
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1200px) {
+.container {
+max-width: 90%;
+padding: 15px;
+}
+
+h2 {
+font-size: 20px;
+}
+
+.header img {
+max-width: 90px;
+}
+
+.details-block {
+padding: 15px;
+}
+
+.view-btn {
+padding: 12px;
+}
+}
+</style>
+</head>
+<body>
+<div class="container">
+        <div class="header">
+            <img src='https://www.gatnix.com/assets/images/gatnix-logo2.jpeg' alt="GATNIX">
+        </div>
+        <h2 class="text-clr">Timesheet Recall Notice - ${User_Name}</h2>
+        <p>Dear ${SuperAdmin_Name} and ${ApprovalManager_Name},</p>
+        <p>Please note that ${User_Name} has recalled their submitted timesheet.</p>
+        <div class="details-block">
+            <p class="text-clr"><strong>Recall Details:</strong></p>
+            <ul class="details">
+                <li class="list-item"> <div class="sub-hedding">Employee:</div> <div><strong>${User_Name}</strong></div> </li>
+                <li class="list-item"> <div class="sub-hedding">Period:</div> <div><strong>${WeekStart_Date} to ${WeekEnd_Date}</strong></div> </li>
+                <li class="list-item"> <div class="sub-hedding">Timesheet ID:</div> <div><strong>${Timesheet_Id}</strong></div> </li>
+                <li class="list-item"> <div class="sub-hedding">Recall Date:</div> <div><strong>${Recall_Date}</strong></div> </li>
+                <li class="list-item"> <div class="sub-hedding">Previous Status:</div> <div><strong>${Previous_Status}</strong></div> </li>
+            </ul>
+        </div>
+        <p>The previously submitted timesheet has been withdrawn for revision. A new timesheet will be submitted shortly.</p>
+        <p>No action is required at this time.</p>
+        <button class="view-btn"><a class="btn-text" href="https://timesheet.gatnix.com/timesheet"><strong>View Timesheet</strong></a></button>
+        <p>Best regards,</p>
+        <p>${Org_Name} Timesheets</p>
+        <div class="footer">
+            <p>Note: This is an automated notification from <span class="gat-footer-title">Gatnix Timesheet Management.</span><br/> Please do not reply to this email.</p>
+            <p>&copy; 2024 Gatnix. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

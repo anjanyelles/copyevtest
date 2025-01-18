@@ -12,42 +12,44 @@ const ViewApprovedSheets = () => {
                 </p>
 
                 <h4 className="section-heading">Approved Sheets</h4>
-                <table className="approved-sheets-table">
-                    <thead>
-                        <tr>
-                            <th>T.ID</th>
-                            <th>Employee Name</th>
-                            <th>Period</th>
-                            <th>Total Hours</th>
-                            <th>Client</th>
-                            <th>End Client</th>
-                            <th>Status</th>
-                            <th>Comments</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>T0022450</td>
-                            <td>Vishwa Tejaaaa</td>
-                            <td>2024-12-08 / 2024-12-14</td>
-                            <td>35.0</td>
-                            <td>Samsung</td>
-                            <td>IBM</td>
-                            <td>Approved</td>
-                            <td>Rejected</td>
-                        </tr>
-                        <tr>
-                            <td>T0022451</td>
-                            <td>Vishwa Tejaaaa</td>
-                            <td>2024-12-15 / 2024-12-21</td>
-                            <td>35.0</td>
-                            <td>Samsung</td>
-                            <td>IBM</td>
-                            <td>Approved</td>
-                            <td>Approved: ...</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div className="table-wrapper">
+                    <table className="approved-sheets-table">
+                        <thead>
+                            <tr>
+                                <th>T.ID</th>
+                                <th>Employee Name</th>
+                                <th>Period</th>
+                                <th>Total Hours</th>
+                                <th>Client</th>
+                                <th>End Client</th>
+                                <th>Status</th>
+                                <th>Comments</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>T0022450</td>
+                                <td>Vishwa Tejaaaa</td>
+                                <td>2024-12-08 / 2024-12-14</td>
+                                <td>35.0</td>
+                                <td>Samsung</td>
+                                <td>IBM</td>
+                                <td>Approved</td>
+                                <td>Rejected</td>
+                            </tr>
+                            <tr>
+                                <td>T0022451</td>
+                                <td>Vishwa Tejaaaa</td>
+                                <td>2024-12-15 / 2024-12-21</td>
+                                <td>35.0</td>
+                                <td>Samsung</td>
+                                <td>IBM</td>
+                                <td>Approved</td>
+                                <td>Approved: ...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
                 <p className="closing-text">
                     The above table provides a detailed summary of all approved timesheets, including the approval status and any comments provided by the approvers.

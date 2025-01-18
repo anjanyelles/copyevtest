@@ -14,7 +14,7 @@ function SATReportGeneration() {
             <img 
                 src="https://via.placeholder.com/800x400"  // Replace with your image URL
                 alt="SAT Report Generation"
-                style={{ width: "60%", height: "auto", marginBottom: "20px" }} 
+          className="image_gatnix_support"
             />
 
             <ol style={{ fontSize: "16px", lineHeight: "1.6", color: "#4F4F4F" }}>

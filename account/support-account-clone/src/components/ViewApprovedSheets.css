@@ -1,20 +1,15 @@
-/* ViewApprovedSheets.css */
 
 .view-approved-sheets-container {
     font-family: Arial, sans-serif;
     margin: 20px auto;
     padding: 20px;
-
 }
-
-
 .main-heading {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
     color: #333;
 }
-
 .description {
     font-size: 16px;
     margin: 10px 0;
@@ -56,4 +51,59 @@
 
 .approved-sheets-table tr:hover {
     background-color: #f1f1f1;
+}
+
+/* Add scroll functionality for smaller screens */
+.table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for touch devices */
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .main-heading {
+        font-size: 20px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+
+    .section-heading {
+        font-size: 18px;
+    }
+
+    .approved-sheets-table th,
+    .approved-sheets-table td {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .closing-text {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-heading {
+        font-size: 18px;
+    }
+
+    .description {
+        font-size: 12px;
+    }
+
+    .section-heading {
+        font-size: 14px;
+    }
+
+    .approved-sheets-table th,
+    .approved-sheets-table td {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .closing-text {
+        font-size: 12px;
+    }
 }

@@ -11,7 +11,7 @@ const BillingAndSATReports = () => {
                 <img 
                     src="https://45323494.fs1.hubspotusercontent-na1.net/hubfs/45323494/Screenshot%202024-12-26%20165401-png-1.png" 
                     alt="SAT Report Generation" 
-                    style={{ width: "60%", height: "auto", marginBottom: "20px" }} 
+              className="image_gatnix_support"
                 />
 
 
@@ -25,14 +25,14 @@ const BillingAndSATReports = () => {
                     <img 
                     src="https://45323494.fs1.hubspotusercontent-na1.net/hubfs/45323494/Screenshot%202024-12-26%20165445-png-1.png" 
                     alt="SAT Report Generation" 
-                    style={{ width: "60%", height: "auto", marginBottom: "20px" }} 
+              className="image_gatnix_support"
                 />
 
                     <li>Proceed to Checkout: Confirm your selection and proceed to the payment stage.</li>
                     <img 
                     src="https://45323494.fs1.hubspotusercontent-na1.net/hubfs/45323494/Screenshot%202024-12-26%20165517-png-1.png" 
                     alt="SAT Report Generation" 
-                    style={{ width: "60%", height: "auto", marginBottom: "20px" }} 
+              className="image_gatnix_support"
                 />
                     <li>Complete the Payment: Enter your payment details and click <strong>Add Payment Method</strong> to finalize the transaction.</li>
                  

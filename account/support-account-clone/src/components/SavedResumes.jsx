@@ -34,7 +34,8 @@ const SavedResumes = () => {
                 <img
                     src="https://via.placeholder.com/300x150"
                     alt="Manage Resumes"
-                    className="placeholder-image"
+                    className="placeholder-image 
+ image_gatnix_support"
                 />
             </div>
         </div>

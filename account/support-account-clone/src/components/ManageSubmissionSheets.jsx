@@ -16,7 +16,7 @@ const ManageSubmissionSheets = () => {
                     Adding Submission Details:
                 </h4>
                 <img 
-                    src="https://via.placeholder.com/150"  
+                    src="https://res.cloudinary.com/dvcdrb9s4/image/upload/v1736961106/Screenshot_2025-01-15_at_10.41.33_PM_cknme5.png"  
                     alt="Adding Submission Details" 
                     style={{ width: "60%", height: "auto", marginBottom: "20px" }}
                 />
@@ -30,7 +30,7 @@ const ManageSubmissionSheets = () => {
                     Editing Submission Details:
                 </h4>
                 <img 
-                    src="https://via.placeholder.com/150"  
+                    src="https://res.cloudinary.com/dvcdrb9s4/image/upload/v1736961456/Screenshot_2025-01-15_at_10.47.20_PM_jyhdq6.png"  
                     alt="Editing Submission Details" 
                     style={{ width: "60%", height: "auto", marginBottom: "20px" }}
                 />
@@ -42,7 +42,7 @@ const ManageSubmissionSheets = () => {
                     Deleting Submission Details:
                 </h4>
                 <img 
-                    src="https://via.placeholder.com/150"  
+                    src="https://res.cloudinary.com/dvcdrb9s4/image/upload/v1736961521/Screenshot_2025-01-15_at_10.48.24_PM_wxr0yo.png"  
                     alt="Deleting Submission Details" 
                     style={{ width: "60%", height: "auto", marginBottom: "20px" }}
                 />

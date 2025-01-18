@@ -32,7 +32,7 @@ const ManageBillingAndReports = () => {
                 <img 
                     src="https://45323494.fs1.hubspotusercontent-na1.net/hubfs/45323494/Screenshot%202024-12-26%20170831-png.png" 
                     alt="SAT Report Generation" 
-                    style={{ width: "60%", height: "auto", marginBottom: "20px" }} 
+              className="image_gatnix_support"
                 />
 
             </div>

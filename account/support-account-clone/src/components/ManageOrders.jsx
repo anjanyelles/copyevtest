@@ -34,7 +34,8 @@ const ManageOrders = () => {
                 <img 
                     src="https://45323494.fs1.hubspotusercontent-na1.net/hubfs/45323494/Screenshot%202024-12-26%20172409-png.png" 
                     alt="Order Management" 
-                    className="placeholder-image"
+                    className="placeholder-image 
+ image_gatnix_support"
                 />
             </div>
         </div>

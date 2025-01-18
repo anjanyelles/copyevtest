@@ -1,147 +1,116 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './HeroSection.css';
-import Swal from 'sweetalert2'; // Import SweetAlert2
+import Swal from 'sweetalert2';
 
 const HeroSection = () => {
-  const [showPopup, setShowPopup] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filteredRoutes, setFilteredRoutes] = useState([]);
+  
+  // Predefined list of routes and their labels
+  const routes = [
+    // Admin Routes
+    { path: '/admin/viewEmployer', label: 'Manage Employer' },
+    { path: '/admin/viewconsultantdetails', label: 'Manage Consultant Details' },
+    { path: '/admin/managesubmissionsheets', label: 'Manage Submission Sheets' },
+    { path: '/admin/templatesettings', label: 'Template Settings' },
+  
+    // SuperAdmin Routes
+    { path: '/superadmin/organization', label: 'Manage Organization Information' },
+    { path: '/superadmin/vendor', label: 'Manage Vendors and Clients' },
+    { path: '/superadmin/schedulersettings', label: 'Scheduler Settings' },
+    { path: '/superadmin/emails', label: 'Email Templates' },
+    { path: '/superadmin/emaillogs', label: 'View Email Logs' },
+    { path: '/superadmin/resumeAnalyzerGuide', label: 'Resume Analyzer Guide' },
+    { path: '/superadmin/resumeMatcherGuide', label: 'Resume Matcher Guide' },
+    { path: '/superadmin/savedResumes', label: 'Saved Resumes' },
+    { path: '/superadmin/savedJobs', label: 'Saved Jobs' },
+    { path: '/superadmin/restrictionConsultant', label: 'Consultant Restrictions' },
+    { path: '/superadmin/RestrictionLoginStatus', label: 'Admin Login Restrictions' },
+    { path: '/superadmin/RestrictionEmployerStatus', label: 'Employer Login Restrictions' },
+  
+    // Approver Manager Routes
+    { path: '/approverManagers/profile', label: 'View or Edit Your Profile' },
+    { path: '/approverManagers/timesheet', label: 'Manage TimeSheets' },
+    { path: '/approverManagers/recalledtimesheets', label: 'Recalled TimeSheets' },
+    { path: '/approverManagers/pendingtimesheets', label: 'Pending TimeSheets' },
+  
+    // Employee Routes
+    { path: '/employee/timesheet', label: 'TimeSheet' },
+    { path: '/employee/pendingtimesheets', label: 'View Pending TimeSheets' },
+    { path: '/employee/approvedsheets', label: 'View Approved Sheets' },
+    { path: '/employee/rejectedtimesheets', label: 'Rejected TimeSheets' },
+    { path: '/employee/recalledtimesheets', label: 'Recalled TimeSheets' },
+  
+    // Consultant Routes
+    { path: '/consultant/resumebuilder', label: 'Use Resume Builder' },
+    { path: '/consultant/profilesetup', label: 'Setup Your Profile' },
+    { path: '/consultant/managesatreports', label: 'Manage SAT Reports' },
+    { path: '/consultant/emailtemplateguide', label: 'Email Template Guide' },
+  
+    // TimeSheet and Miscellaneous Routes
+    { path: '/timesheet/profilesetup', label: 'Profile Setup' },
+    { path: '/timesheet/satreportgeneration', label: 'SAT Report Generation' },
+    { path: '/timesheet/manage-invoices', label: 'Manage Invoices' },
+    { path: '/timesheet/viewconsultantdetails', label: 'View Consultant Details' },
+    { path: '/timesheet/viewEmployer', label: 'View Employers' },
+    { path: '/timesheet/troubleshooting', label: 'Troubleshooting' },
+    { path: '/timesheet/vendorclientmanagement', label: 'Vendor and Client Management' },
+    { path: '/timesheet/manageorders', label: 'Manage Orders' },
+    { path: '/timesheet/airesumematcher', label: 'AI Resume Matcher' },
+    { path: '/timesheet/billingandsatreports', label: 'Billing and SAT Reports' },
+  
+    // Account Help and Support Routes
+    { path: '/accounthelp/satreportgeneration', label: 'SAT Report Generation Help' },
+    { path: '/accounthelp/profileupdate', label: 'Update Profile Guide' },
+    { path: '/accounthelp/troubleshooting', label: 'Troubleshooting Guide' },
+  ];
+  
 
-  // Initialize Google Analytics
-  const initGA = () => {
-    if (window.gtag) {
-      window.gtag('config', 'YOUR_GA_TRACKING_ID'); // Replace with your GA tracking ID
-    }
-  };
-
-  // Track events in Google Analytics
-  const trackEvent = (category, action, label) => {
-    if (window.gtag) {
-      window.gtag('event', action, {
-        event_category: category,
-        event_label: label,
-      });
-    }
-  };
-
+  // Update filtered routes based on search term
   useEffect(() => {
-    initGA(); // Initialize Google Analytics
-    const hasVisited = localStorage.getItem('hasVisited');
-    if (!hasVisited) {
-      setShowPopup(true); // Show popup if first visit
+    if (searchTerm) {
+      const matches = routes.filter(route =>
+        route.label.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredRoutes(matches);
+    } else {
+      setFilteredRoutes([]);
     }
-  }, []);
-
-  const handlePopupSubmit = (email, phone) => {
-    // Simple email and phone validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const phoneRegex = /^[0-9]{10}$/;
-
-    if (!email || !phone) {
-      Swal.fire({
-        title: 'Error!',
-        text: 'Please enter both email and phone number.',
-        icon: 'error',
-        confirmButtonText: 'Try Again',
-      });
-      return;
-    }
-
-    if (!emailRegex.test(email)) {
-      Swal.fire({
-        title: 'Error!',
-        text: 'Please enter a valid email address.',
-        icon: 'error',
-        confirmButtonText: 'Try Again',
-      });
-      return;
-    }
-
-    if (!phoneRegex.test(phone)) {
-      Swal.fire({
-        title: 'Error!',
-        text: 'Please enter a valid 10-digit phone number.',
-        icon: 'error',
-        confirmButtonText: 'Try Again',
-      });
-      return;
-    }
-
-    // Track event in Google Analytics
-    trackEvent('User Interaction', 'Submit Contact Info', 'Email and Phone');
-
-    // Mark as visited in localStorage to prevent showing popup again
-    localStorage.setItem('hasVisited', 'true');
-
-    // Send form data to Formspree
-    sendFormData(email, phone);
-
-    // SweetAlert success
-    Swal.fire({
-      title: 'Thank you!',
-      text: 'Your information has been submitted successfully.',
-      icon: 'success',
-      confirmButtonText: 'OK',
-    });
-  };
-
-  const sendFormData = (email, phone) => {
-    const formData = {
-      email,
-      phone,
-    };
-
-    // Send form data to Formspree
-    fetch('https://formspree.io/f/meoqwojo', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((response) => {
-        if (response.ok) {
-          console.log('Form submitted successfully!');
-        } else {
-          console.error('Error submitting form:', response);
-        }
-      })
-      .catch((error) => {
-        console.error('Error submitting form:', error);
-      });
-  };
-
-  const showPopupForm = () => {
-    Swal.fire({
-      title: 'Welcome to Gatnix Support',
-      html: `
-        <input id="email" class="swal2-input" type="email" placeholder="Enter your email" required>
-        <input id="phone" class="swal2-input" type="tel" placeholder="Enter your phone number" required>
-      `,
-      preConfirm: () => {
-        const email = document.getElementById('email').value;
-        const phone = document.getElementById('phone').value;
-        handlePopupSubmit(email, phone); // Pass values to submit function
-      },
-      focusConfirm: false,
-      showCancelButton: true,
-      cancelButtonText: 'Cancel',
-      confirmButtonText: 'Submit',
-    });
-  };
-
-  // useEffect(() => {
-  //   // If it's the user's first visit, show the popup
-  //   if (!localStorage.getItem('hasVisited')) {
-  //     showPopupForm(); // Trigger SweetAlert popup
-  //   }
-  // }, []); // Empty dependency array ensures this runs only on initial load
+  }, [searchTerm]);
 
   return (
     <section className="hero">
-      <h1>Hello, Anjan, welcome to Gatnix Support</h1>
+      <h1> Welcome to Gatnix Support</h1>
       <div className="search-bar">
-        <input type="text" placeholder="How can we help you?" />
+        <input
+          type="text"
+          placeholder="How can we help you?"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
         <button>&#10132;</button>
       </div>
+
+      {/* Display matching routes */}
+      <div className='search-results_search'>
+      {filteredRoutes.length > 0 && (
+        <div className="search-results">
+          <ul>
+            {filteredRoutes.map((route, index) => (
+              <li key={index}  className='liststyle'>
+                <Link to={route.path}>{route.label}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      </div>
+
+      {/* Show no results message */}
+      {searchTerm && filteredRoutes.length === 0 && (
+        <p className="no-results">No matching topics found.</p>
+      )}
     </section>
   );
 };

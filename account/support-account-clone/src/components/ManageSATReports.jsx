@@ -16,7 +16,7 @@ const ManageSATReports = () => {
                     Steps to Generate SAT Reports and Review Key Details
                 </h4>
                 <img 
-                    src="https://via.placeholder.com/150"  
+                    src="https://res.cloudinary.com/dvcdrb9s4/image/upload/v1736961605/Screenshot_2025-01-15_at_10.49.50_PM_yym6kc.png"  
                     alt="SAT Report Generation" 
                     style={{ width: "60%", height: "auto", marginBottom: "20px" }}
                 />

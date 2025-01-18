@@ -39,7 +39,8 @@ const SavedJobs = () => {
                 <img
                     src="https://45323494.fs1.hubspotusercontent-na1.net/hubfs/45323494/Screenshot%202024-12-26%20181250-png.png"
                     alt="Manage Saved Jobs"
-                    className="placeholder-image"
+                    className="placeholder-image 
+ image_gatnix_support"
                 />
             </div>
         </div>

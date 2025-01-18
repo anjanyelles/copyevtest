@@ -10,7 +10,7 @@ function EmailTemplateGuide() {
                 Managing email templates efficiently can save you time and enhance communication. Here’s how to create, edit, and delete email templates:
             </p>
             <img 
-                    src="https://via.placeholder.com/800x400" // Replace with your image URL
+                    src="https://45323494.fs1.hubspotusercontent-na1.net/hubfs/45323494/Screenshot%202024-12-26%20180712-png.png" // Replace with your image URL
                     alt="Create Approval Manager"
                     style={{ width: "60%", height: "auto", marginBottom: "20px" }}
                 />

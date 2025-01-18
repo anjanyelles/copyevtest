@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./GatnixAccountHelp.css";
 import Header from "./Header";
@@ -18,6 +18,12 @@ import OrganizationInformation from "./OrganizationInformation";
 import ManageSubmissionSheets from "./ManageSubmissionSheets";
 import ViewOrganizationDetails from "./ViewOrganizationDetails";
 import ViewEmailHistory from "./ViewEmailHistory";
+import {
+  faBars,
+  faTimes,
+  faCircleChevronUp,
+  faCircleChevronDown,
+} from "@fortawesome/free-solid-svg-icons";
 import ManageSchedulerSettings from "./ManageSchedulerSettings";
 import ViewSchedulerLogs from "./ViewSchedulerLogs";
 import ManageSATReports from "./ManageSATReports";
@@ -32,8 +38,7 @@ import ImportOrCreateResume from "./ImportOrCreateResume";
 import TemplateSettings from "./TemplateSettings";
 import SavedJobs from "./SavedJobs";
 import Footer1 from "./Footer1";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleChevronDown, faCircleChevronUp } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ViewEmployer from "./ViewEmployer";
 import RestrictEmployers from "./RestrictEmployers";
 import RestrictConsultants from "./RestrictConsultants";
@@ -43,27 +48,83 @@ import ViewApprovedSheets from "./ViewApprovedSheets";
 import PendingTimeSheets from "./PendingTimeSheets";
 import RejectedTimeSheets from "./RejectedTimeSheets";
 import RecalledTimeSheets from "./RecalledTimeSheets";
-
+import AddOrViewEmployee from "./AddViewEmployee";
+import AddOrViewClient from "./AddOrViewClient";
+import ManageConsultants from "./Superadmin/ManageConsultants";
+import SubmissionComments from "./Superadmin/SubmissionComments";
+import EmailTemplates from "./Superadmin/EmailTemplates";
+import EmailTemplatesGuide from "./Superadmin/EmailTemplatesGuide";
+import SchedulerSettings from "./Superadmin/SchedulerSettings";
+import EmailLog from "./Superadmin/EmailLog";
+import ResumeAnalyzerGuide from "./Superadmin/ResumeAnalyzerGuide";
+import ResumeBuilderGuide from "./Superadmin/ResumeBuilderGuide";
+import ResumeMatcherGuide from "./Superadmin/ResumeMatcherGuide";
+import SavedResumes from "./Superadmin/SavedResumes";
+import SavedJobsAdmin from "./Superadmin/SavedJobsAdmin";
+import RestrictionAdminLoginStatus from "./Superadmin/RestrictionAdminLoginStatus";
+import RestrictionEmployerLoginStatus from "./Superadmin/RestrictionEmployerLoginStatus";
+import RestrictionConsultant from "./Superadmin/RestrictionConsultant";
+import RestrictModuleAccess from "./Superadmin/RestrictModuleAccess";
+import AdminLoginStatus from "./Superadmin/AdminLoginStatus";
+import ConsultantStatusManagement from "./ConsultantStatusManagement";
+import AdminAccessManagement from "./AdminAccessManagement";
+import GenerateSATReport from "./GenerateSATReport";
+import SearchSidebar from "./SearchSidebar";
+import SATReportGuide from "./Superadmin/SATReportGuide";
+import AdminAccessControl from "./Superadmin/AdminAccessControl";
+import AdminProfile from "./Superadmin/AdminProfile";
+import AssignLicensesToConsultant from "./Superadmin/AssignLicensesToConsultant";
+import Create from "./Create";
 
 // Individual components for each help topic
 
 const Timesheet = () => {
   const location = useLocation();
 
-
-
-
   const [openMenus, setOpenMenus] = useState({});
+  const [isSidebarVisible, setSidebarVisible] = useState(false); // Handles sidebar visibility
+  const [activeMenus, setActiveMenus] = useState({}); // Tracks which submenus are open
+
+  // Toggles sidebar visibility
+  const toggleSidebarVisibility = () => {
+    setSidebarVisible((prev) => !prev);
+  };
 
   const handleMenuClick = (menu) => {
-    // Toggle the clicked menu while keeping others intact
-    setOpenMenus((prevMenus) => ({
-      ...prevMenus,
-      [menu]: !prevMenus[menu], // Toggle the current menu
+    setOpenMenus((prev) => ({
+      ...prev,
+      [menu]: !prev[menu],
     }));
   };
 
+  const isActive = (path) => location.pathname === path;
 
+  // useEffect to handle window resize events
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 800) {
+        setSidebarVisible(true); // Automatically show sidebar if window width > 800px
+      } else {
+        setSidebarVisible(false); // Hide sidebar on small screens
+      }
+    };
+
+    // Initial check
+    handleResize();
+
+    // Add resize event listener
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []); // Empty dependency array to run effect only once on mount
+
+  // Toggles the state of a submenu
+  const handleSubMenuToggle = (menuName) => {
+    setActiveMenus((prev) => ({ ...prev, [menuName]: !prev[menuName] }));
+  };
 
   let content = null;
   if (location.pathname === "/timesheet/create-approval-manager") {
@@ -82,22 +143,34 @@ const Timesheet = () => {
     content = <ConsultantProfileEdit />;
   } else if (location.pathname === "/timesheet/schedulerlogs") {
     content = <SchedulerLogs />;
-  } else if (location.pathname === "/timesheet/viewconsultantdetails"  || location.pathname === "/admin/viewconsultantdetails" || location.pathname === "/superadmin/viewconsultantdetails") {
+  } else if (
+    location.pathname === "/timesheet/viewconsultantdetails" ||
+    location.pathname === "/admin/viewconsultantdetails" ||
+    location.pathname === "/superadmin/viewconsultantdetails"
+  ) {
     content = <ViewConsultantDetails />;
-  } else if (location.pathname === "/timesheet/viewEmployer"  || location.pathname === "/admin/viewEmployer" || location.pathname === "/superadmin/viewEmployer") {
+  } else if (
+    location.pathname === "/timesheet/viewEmployer" ||
+    location.pathname === "/admin/viewEmployer" ||
+    location.pathname === "/superadmin/viewEmployer"
+  ) {
     content = <ViewEmployer />;
-  }
-  else if (location.pathname === "/timesheet/restrictEmployers"  || location.pathname === "/admin/restrictEmployers" || location.pathname === "/superadmin/restrictEmployers") {
+  } else if (
+    location.pathname === "/timesheet/restrictEmployers" ||
+    location.pathname === "/admin/restrictEmployers" ||
+    location.pathname === "/superadmin/restrictEmployers"
+  ) {
     content = <RestrictEmployers />;
-    
-
-  }
-  else if (location.pathname === "/timesheet/restrictConsultants"  || location.pathname === "/admin/restrictConsultants" || location.pathname === "/superadmin/restrictConsultants") {
+  } else if (
+    location.pathname === "/timesheet/restrictConsultants" ||
+    location.pathname === "/admin/restrictConsultants" ||
+    location.pathname === "/superadmin/restrictConsultants"
+  ) {
     content = <RestrictConsultants />;
-    
-
-  }
-   else if (location.pathname === "/timesheet/emailtemplateguide"  ||    location.pathname === "/consultant/emailtemplateguide" ) {
+  } else if (
+    location.pathname === "/timesheet/emailtemplateguide" ||
+    location.pathname === "/consultant/emailtemplateguide"
+  ) {
     content = <EmailTemplateGuide />;
   } else if (location.pathname === "/timesheet/profilesetup") {
     content = <ProfileSetup />;
@@ -105,22 +178,21 @@ const Timesheet = () => {
     content = <VendorClientManagement />;
   } else if (location.pathname === "/timesheet/organizationinformation") {
     content = <OrganizationInformation />;
-  } else if (location.pathname === "/timesheet/managesubmissionsheets" || location.pathname === "/consultant/managesubmissionsheets") {
+  } else if (
+    location.pathname === "/timesheet/managesubmissionsheets" ||
+    location.pathname === "/consultant/managesubmissionsheets"
+  ) {
     content = <ManageSubmissionSheets />;
-  }
-
-    else if (location.pathname === "/admin/managesubmissionsheets") {
-      content = <ManageSubmissionSheets />;
-   
-
-  }
-  else if (location.pathname === "/employee/rejectedtimesheets") {
+  } else if (location.pathname === "/admin/managesubmissionsheets") {
+    content = <ManageSubmissionSheets />;
+  } else if (location.pathname === "/employee/rejectedtimesheets") {
     content = <RejectedTimeSheets />;
-}else if (location.pathname === "/employee/recalledtimesheets"  || location.pathname === "/approverManagers/recalledtimesheets") {
-  content = <RecalledTimeSheets />;
-}
-  
-   else if (location.pathname === "/timesheet/vieworganizationdetails") {
+  } else if (
+    location.pathname === "/employee/recalledtimesheets" ||
+    location.pathname === "/approverManagers/recalledtimesheets"
+  ) {
+    content = <RecalledTimeSheets />;
+  } else if (location.pathname === "/timesheet/vieworganizationdetails") {
     content = <ViewOrganizationDetails />;
   } else if (location.pathname === "/timesheet/manageschedulersettings") {
     content = <ManageSchedulerSettings />;
@@ -128,47 +200,161 @@ const Timesheet = () => {
     content = <ViewEmailHistory />;
   } else if (location.pathname === "/timesheet/viewschedulerlogs") {
     content = <ViewSchedulerLogs />;
-  } else if (location.pathname === "/timesheet/managesatreports"  || location.pathname === "/consultant/managesatreports" ) {
+  } else if (
+    location.pathname === "/timesheet/managesatreports" ||
+    location.pathname === "/consultant/managesatreports"
+  ) {
     content = <ManageSATReports />;
   } else if (location.pathname === "/timesheet/billingandsatreports") {
     content = <BillingAndSATReports />;
   } else if (location.pathname === "/timesheet/managebillingandreports") {
     content = <ManageBillingAndReports />;
-  } else if (location.pathname === "/timesheet/userandbillingoverview"  || location.pathname === "/admin/userandbillingoverview" || location.pathname === "/superadmin/userandbillingoverview") {
+  } else if (
+    location.pathname === "/timesheet/userandbillingoverview" ||
+    location.pathname === "/admin/userandbillingoverview" ||
+    location.pathname === "/superadmin/userandbillingoverview"
+  ) {
     content = <UserAndBillingOverview />;
-  } else if (location.pathname === "/timesheet/manageconsultantlicenses"  ||  location.pathname === "/superadmin/manageconsultantlicenses") {
+  } else if (
+    location.pathname === "/timesheet/manageconsultantlicenses" ||
+    location.pathname === "/superadmin/manageconsultantlicenses"
+  ) {
     content = <ManageConsultantLicenses />;
-  } else if (location.pathname === "/timesheet/manageorders" || location.pathname === "/superadmin/manageorders") {
+  } else if (
+    location.pathname === "/timesheet/manageorders" ||
+    location.pathname === "/superadmin/manageorders"
+  ) {
     content = <ManageOrders />;
-  } else if (location.pathname === "/timesheet/resumebuilder"  || location.pathname === "/admin/resumebuilder" || location.pathname === "/consultant/resumebuilder"   ) {
+  } else if (
+    location.pathname === "/timesheet/resumebuilder" ||
+    location.pathname === "/admin/resumebuilder" ||
+    location.pathname === "/consultant/resumebuilder"
+  ) {
     content = <ResumeBuilder />;
-  } else if (location.pathname === "/timesheet/airesumematcher"  || location.pathname === "/admin/airesumematcher"   || location.pathname === "/superadmin/superadmin" || location.pathname === "/consultant/managesatreports" ||  location.pathname === "/consultant/airesumematcher"  || location.pathname === "/superadmin/airesumematcher" ) {
+  } else if (
+    location.pathname === "/timesheet/airesumematcher" ||
+    location.pathname === "/admin/airesumematcher" ||
+    location.pathname === "/superadmin/superadmin" ||
+    location.pathname === "/consultant/managesatreports" ||
+    location.pathname === "/consultant/airesumematcher" ||
+    location.pathname === "/superadmin/airesumematcher"
+  ) {
     content = <AIResumeMatcher />;
   } else if (location.pathname === "/timesheet/importorcreateresume") {
     content = <ImportOrCreateResume />;
-  }
-  else if (location.pathname === "/employee/timesheet"  || location.pathname === "/approverManagers/timesheet") {
+  } else if (
+    location.pathname === "/employee/timesheet" ||
+    location.pathname === "/approverManagers/timesheet"
+  ) {
     content = <Timesheetcontnent />;
   }
-  else if (location.pathname === "/employee/timesubmittedSheets" || location.pathname === "/approverManagers/timesubmittedSheets") {
+  else if (
+    location.pathname === "/approverManagers/project"
+  ) {
+    content = <Create />;
+  }  else if (
+    location.pathname === "/employee/timesubmittedSheets" ||
+    location.pathname === "/approverManagers/timesubmittedSheets"
+  ) {
     content = <ViewSubmittedSheets />;
-  }
-  else if (location.pathname === "/employee/approvedsheets"  || location.pathname === "/approverManagers/approvedsheets") {
+  } else if (
+    location.pathname === "/employee/approvedsheets" ||
+    location.pathname === "/approverManagers/approvedsheets"
+  ) {
     content = <ViewApprovedSheets />;
-  }
-  else if (location.pathname === "/employee/pendingtimesheets"  || location.pathname === "/approverManagers/pendingtimesheets") {
+  } else if (
+    location.pathname === "/employee/pendingtimesheets" ||
+    location.pathname === "/approverManagers/pendingtimesheets"
+  ) {
     content = <PendingTimeSheets />;
-  }
-  
-   else if (location.pathname === "/timesheet/templatesettings") {
+  } else if (location.pathname === "/timesheet/templatesettings") {
     content = <TemplateSettings />;
-  } 
-  else if (location.pathname === "/admin/templatesettings"  || location.pathname === "/superadmin/emailtemplateguide") {
+  } else if (
+    location.pathname === "/admin/templatesettings" ||
+    location.pathname === "/superadmin/emailtemplateguide"
+  ) {
     content = <TemplateSettings />;
-  }else if (location.pathname === "/timesheet/savedjobs" || location.pathname === "/admin/savedjobs" || location.pathname === "/superadmin/savedjobs" ) {
+  } else if (
+    location.pathname === "/timesheet/savedjobs" ||
+    location.pathname === "/admin/savedjobs"
+  ) {
     content = <SavedJobs />;
-  } else if (location.pathname === "/timesheet/profilesetup"  ||   location.pathname === "/consultant/profilesetup" || location.pathname === "/employee/profile"  || location.pathname === "/approverManagers/profile"  ) {
+  } else if (
+    location.pathname === "/approverManagers/rejectedtimesheets"
+
+  ) {
+    content = <RejectedTimeSheets />;
+  }
+   else if (
+    location.pathname === "/timesheet/profilesetup" ||
+    location.pathname === "/consultant/profilesetup" ||
+    location.pathname === "/employee/profile" ||
+    location.pathname === "/approverManagers/profile"
+  ) {
     content = <ProfileSetup />;
+  } else if (location.pathname === "/approverManagers/addOrviewemployee") {
+    content = <AddOrViewEmployee />;
+  } else if (location.pathname === "/approverManagers/addOrViewClient") {
+    content = <AddOrViewClient />;
+  }
+
+  // superadmin routes
+  else if (location.pathname === "/timesheet/manageConsultantssuperadmin") {
+    content = <ManageConsultants />;
+  } else if (location.pathname === "/timesheet/submissions-sheet") {
+    content = <SubmissionComments />;
+  } else if (location.pathname === "/superadmin/emails") {
+    content = <EmailTemplates />;
+  } else if (location.pathname === "/superadmin/emails") {
+    content = <EmailTemplatesGuide />;
+  } else if (location.pathname === "/superadmin/schedulersettings") {
+    content = <SchedulerSettings />;
+  } else if (location.pathname === "/superadmin/emaillogs") {
+    content = <EmailLog />;
+  } else if (location.pathname === "/superadmin/resumeAnalyzerGuide") {
+    content = <ResumeAnalyzerGuide />;
+  } else if (location.pathname === "/superadmin/resumeBuilderGuide") {
+    content = <ResumeBuilderGuide />;
+  } else if (location.pathname === "/superadmin/resumeMatcherGuide") {
+    content = <ResumeMatcherGuide />;
+  } else if (location.pathname === "/superadmin/savedResumes") {
+    content = <SavedResumes />;
+  } else if (location.pathname === "/superadmin/savedJobs") {
+    content = <SavedJobsAdmin />;
+  } else if (location.pathname === "/superadmin/savedJobs") {
+    content = <SavedJobsAdmin />;
+  } else if (location.pathname === "/superadmin/RestrictionLoginStatus") {
+    content = <RestrictionAdminLoginStatus />;
+  } else if (location.pathname === "/superadmin/RestrictionEmployerStatus") {
+    content = <RestrictionEmployerLoginStatus />;
+  } else if (location.pathname === "/superadmin/restrictionConsultant") {
+    content = <RestrictionConsultant />;
+  } else if (location.pathname === "/superadmin/RestrictModuleAccess") {
+    content = <RestrictModuleAccess />;
+  } else if (location.pathname === "/superadmin/AdminLoginStatus") {
+    content = <AdminLoginStatus />;
+  } else if (location.pathname === "/superadmin/EmployerLoginStatus") {
+    // content = <EmployerLoginStatus />;
+  } else if (location.pathname === "/superadmin/ConsultantStatusManagement") {
+    content = <ConsultantStatusManagement />;
+  } else if (location.pathname === "/superadmin/AdminAccessManagement") {
+    content = <AdminAccessManagement />;
+  }
+  else if (location.pathname === "/superadmin/AdminProfile") {
+    content = <AdminProfile />;
+  } else if (location.pathname === "/superadmin/GenerateSATReport") {
+    
+    content = <GenerateSATReport />;
+  }
+   
+  else if (location.pathname === "/superadmin/AssignLicensesToConsultant") {
+    content = <AssignLicensesToConsultant />;
+  }else if (location.pathname === "/superadmin/AdminAccessControl") {
+    content = <AdminAccessControl />;
+  } else if (location.pathname === "/superadmin/SATReportGuide") {
+    content = <SATReportGuide />;
+  } else if (location.pathname === "/superadmin/AdminAccessManagement") {
+    content = <AdminAccessManagement />;
   } else {
     content = (
       <div style={{ textAlign: "center", marginTop: "50px" }}>
@@ -302,314 +488,437 @@ const Timesheet = () => {
         style={{ display: "flex", height: "100vh" }}
       >
         {/* Sidebar */}
-        <div className="sidebar" style={{ flex: "0 0 20%", padding: "10px", }}>
-         
+        <div
+          className="hamburger"
+          onClick={toggleSidebarVisibility}
+          style={{
+            position: "absolute",
+            top: "2rem",
+            left: "10px",
+            zIndex: 1000,
+            cursor: "pointer",
+            fontSize: "1.5rem",
+          }}
+        >
+          <FontAwesomeIcon icon={isSidebarVisible ? faTimes : faBars} />
+        </div>
+        <div
+          className="sidebar"
+          style={{
+            flex: isSidebarVisible ? "0 0 16%" : "0 0 16%",
+            padding: isSidebarVisible ? "10px" : "0px",
+            backgroundColor: "#f5f5f5",
+            transform: isSidebarVisible ? "translateX(0)" : "translateX(-100%)",
+            transition: "transform 0.3s ease-in-out",
+            height: "100%",
+            width: "100%",
+            zIndex: 999,
+            display: isSidebarVisible ? "flex" : "none",
+          }}
+        >
+
           <ul style={{ listStyleType: "none", padding: 0 }}>
-
-
-      
-
-
-
-<li style={{ padding: "10px", cursor: "pointer" }}>
-  <div
-    onClick={() => handleMenuClick("approverManagers")}
-    style={{
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-    }}
-  >
-    <span>Approver Managers</span>
-    <FontAwesomeIcon
-      icon={openMenus["approverManagers"] ? faCircleChevronUp : faCircleChevronDown}
-    />
-  </div>
-  {openMenus["approverManagers"] && (
-    <ul style={{ listStyleType: "none", marginTop: "5px" }}>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/approverManagers" style={{ textDecoration: "none", color: "inherit" }}>
-          Approver Managers
-        </Link>
+          <SearchSidebar isSidebarVisible={isSidebarVisible} openMenus={openMenus} handleMenuClick={handleMenuClick} isActive={isActive} />
+    
+                  <li>
+        <div
+          onClick={() => handleMenuClick("approverManagers")}
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <span>Approver Managers</span>
+          <FontAwesomeIcon
+            icon={
+              openMenus["approverManagers"]
+                ? faCircleChevronUp
+                : faCircleChevronDown
+            }
+          />
+        </div>
+        {openMenus["approverManagers"] && (
+          <ul style={{ listStyleType: "none", marginTop: "5px" }}>
+            <li>
+              <Link
+                to="/approverManagers/profile"
+                className={isActive("/approverManagers/profile") ? "active" : ""}
+              >
+                View or Edit Your Profile
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/approverManagers/addOrviewemployee"
+                className={isActive("/approverManagers/addOrviewemployee") ? "active" : ""}
+              >
+                Add or View Employee
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/approverManagers/addOrViewClient"
+                className={isActive("/approverManagers/addOrViewClient") ? "active" : ""}
+              >
+                Add or View Client
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/approverManagers/project"
+                className={isActive("/approverManagers/project") ? "active" : ""}
+              >
+                Create or Edit Project
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/approverManagers/timesheet"
+                className={isActive("/approverManagers/timesheet") ? "active" : ""}
+              >
+                View All TimeSheets
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/approverManagers/timesubmittedSheets"
+                className={isActive("/approverManagers/timesubmittedSheets") ? "active" : ""}
+              >
+                View Submitted Sheets
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/approverManagers/approvedsheets"
+                className={isActive("/approverManagers/approvedsheets") ? "active" : ""}
+              >
+                Approve Time Sheets
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/approverManagers/pendingtimesheets"
+                className={isActive("/approverManagers/pendingtimesheets") ? "active" : ""}
+              >
+                View Pending Sheets
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/approverManagers/rejectedtimesheets"
+                className={isActive("/approverManagers/rejectedtimesheets") ? "active" : ""}
+              >
+                View Rejected Sheets
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/approverManagers/recalledtimesheets"
+                className={isActive("/approverManagers/recalledtimesheets") ? "active" : ""}
+              >
+                View Recalled Sheets
+              </Link>
+            </li>
+          </ul>
+        )}
       </li>
 
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/approverManagers/profile" style={{ textDecoration: "none", color: "inherit" }}>
-          View or Edit Your Profile
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/approverManagers/employee" style={{ textDecoration: "none", color: "inherit" }}>
-          Add or View Employee
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/approverManagers/client" style={{ textDecoration: "none", color: "inherit" }}>
-          Add or View Client
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/approverManagers/project" style={{ textDecoration: "none", color: "inherit" }}>
-          Create or Edit Project
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/approverManagers/timesheet" style={{ textDecoration: "none", color: "inherit" }}>
-          View All TimeSheets
-        </Link>
+      <li style={{ padding: "10px", cursor: "pointer" }}>
+        <div
+          onClick={() => handleMenuClick("employee")}
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <span>Employee</span>
+          <FontAwesomeIcon
+            icon={
+              openMenus["employee"]
+                ? faCircleChevronUp
+                : faCircleChevronDown
+            }
+          />
+        </div>
+        {openMenus["employee"] && (
+          <ul style={{ listStyleType: "none", marginTop: "5px" }}>
+            <li>
+              <Link
+                to="/employee/profile"
+                className={isActive("/employee/profile") ? "active" : ""}
+              >
+                View or Edit Profile
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/employee/timesheet"
+                className={isActive("/employee/timesheet") ? "active" : ""}
+              >
+                TimeSheet
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/employee/timesubmittedSheets"
+                className={isActive("/employee/timesubmittedSheets") ? "active" : ""}
+              >
+                View Submitted Sheets
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/employee/approvedsheets"
+                className={isActive("/employee/approvedsheets") ? "active" : ""}
+              >
+                View Approved Sheets
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/employee/pendingtimesheets"
+                className={isActive("/employee/pendingtimesheets") ? "active" : ""}
+              >
+                View Pending Sheets
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/employee/rejectedtimesheets"
+                className={isActive("/employee/rejectedtimesheets") ? "active" : ""}
+              >
+                View Rejected Sheets
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/employee/recalledtimesheets"
+                className={isActive("/employee/recalledtimesheets") ? "active" : ""}
+              >
+                View Recalled Sheets
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/employee/help-desk"
+                className={isActive("/employee/help-desk") ? "active" : ""}
+              >
+                Help Desk
+              </Link>
+            </li>
+          </ul>
+        )}
       </li>
 
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/approverManagers/submitted-sheets" style={{ textDecoration: "none", color: "inherit" }}>
-          View Submitted Sheets
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/approverManagers/timesubmittedSheets" style={{ textDecoration: "none", color: "inherit" }}>
-          View Approved Sheets
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/approverManagers/approvedsheets" style={{ textDecoration: "none", color: "inherit" }}>
-          Approve Time Sheets
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/approverManagers/pendingtimesheets" style={{ textDecoration: "none", color: "inherit" }}>
-          View Pending Sheets
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/approverManagers/rejectedtimesheets" style={{ textDecoration: "none", color: "inherit" }}>
-          View Rejected Sheets
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/approverManagers/recalledtimesheets" style={{ textDecoration: "none", color: "inherit" }}>
-          View Recalled Sheets
-        </Link>
-      </li>
-    </ul>
-  )}
-</li>
-
-
-<li style={{ padding: "10px", cursor: "pointer" }}>
-  <div
-    onClick={() => handleMenuClick("employee")}
-    style={{
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-    }}
-  >
-    <span>Employee</span>
-    <FontAwesomeIcon
-      icon={openMenus["employee"] ? faCircleChevronUp : faCircleChevronDown}
-    />
-  </div>
-  {openMenus["employee"] && (
-    <ul style={{ listStyleType: "none", marginTop: "5px" }}>
-
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/employee/profile" style={{ textDecoration: "none", color: "inherit" }}>
-        View or Edit   Profile
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/employee/timesheet" style={{ textDecoration: "none", color: "inherit" }}>
-          TimeSheet
-        </Link>
-      </li>
-
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/employee/timesubmittedSheets" style={{ textDecoration: "none", color: "inherit" }}>
-        View   Submitted Sheets
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/employee/approvedsheets" style={{ textDecoration: "none", color: "inherit" }}>
-        View   Approved Sheets
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/employee/pendingtimesheets" style={{ textDecoration: "none", color: "inherit" }}>
-        View Pending Sheets
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/employee/rejectedtimesheets" style={{ textDecoration: "none", color: "inherit" }}>
-        View  Rejected Sheets
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/employee/recalledtimesheets" style={{ textDecoration: "none", color: "inherit" }}>
-         View  Recalled Sheets
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/employee/help-desk" style={{ textDecoration: "none", color: "inherit" }}>
-          Help Desk
-        </Link>
-      </li>
-    </ul>
-  )}
-</li>
-
-
-
-<li style={{ padding: "10px", cursor: "pointer" }}>
-  <div
-    onClick={() => handleMenuClick("admin")}
-    style={{
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-    }}
-  >
-    <span>Admin</span>
-    <FontAwesomeIcon
-      icon={openMenus["admin"] ? faCircleChevronUp : faCircleChevronDown}
-    />
-  </div>
-  {openMenus["admin"] && (
-    <ul style={{ listStyleType: "none", marginTop: "5px" }}>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/admin/viewEmployer" style={{ textDecoration: "none", color: "inherit" }}>
-          Manage Employer
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/admin/viewconsultantdetails" style={{ textDecoration: "none", color: "inherit" }}>
-          Manage Consultant
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/admin/restrictEmployers" style={{ textDecoration: "none", color: "inherit" }}>
-          View or Restrict Employers
-        </Link>
-      </li>
-      
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/admin/restrictConsultants" style={{ textDecoration: "none", color: "inherit" }}>
-          View or Restrict Consultants
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/admin/managesubmissionsheets" style={{ textDecoration: "none", color: "inherit" }}>
-          View or Add Submission Sheets
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/timesheet/managesatreports" style={{ textDecoration: "none", color: "inherit" }}>
-          Generate SAT Reports
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/admin/resumebuilder" style={{ textDecoration: "none", color: "inherit" }}>
-          Open Resume Builder
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/admin/airesumematcher" style={{ textDecoration: "none", color: "inherit" }}>
-          Learn How Resume Analyzer Works
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/admin/airesumematcher" style={{ textDecoration: "none", color: "inherit" }}>
-          Learn How AI Resume Matcher Works
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/admin/templatesettings" style={{ textDecoration: "none", color: "inherit" }}>
-          Change Template Settings
-        </Link>
-      </li>
+      <li style={{ padding: "10px", cursor: "pointer" }}>
+        <div
+          onClick={() => handleMenuClick("admin")}
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <span>Admin</span>
+          <FontAwesomeIcon
+            icon={openMenus["admin"] ? faCircleChevronUp : faCircleChevronDown}
+          />
+        </div>
+        {openMenus["admin"] && (
+          <ul style={{ listStyleType: "none", marginTop: "5px" }}>
+            <li>
+              <Link
+                to="/admin/viewEmployer"
+                className={isActive("/admin/viewEmployer") ? "active" : ""}
+              >
+                Manage Employer
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/admin/viewconsultantdetails"
+                className={isActive("/admin/viewconsultantdetails") ? "active" : ""}
+              >
+                Manage Consultant
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/admin/restrictEmployers"
+                className={isActive("/admin/restrictEmployers") ? "active" : ""}
+              >
+                View or Restrict Employers
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/admin/restrictConsultants"
+                className={isActive("/admin/restrictConsultants") ? "active" : ""}
+              >
+                View or Restrict Consultants
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/admin/managesubmissionsheets"
+                className={isActive("/admin/managesubmissionsheets") ? "active" : ""}
+              >
+                View or Add Submission Sheets
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/timesheet/managesatreports"
+                className={isActive("/timesheet/managesatreports") ? "active" : ""}
+              >
+                Generate SAT Reports
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/admin/resumebuilder"
+                className={isActive("/admin/resumebuilder") ? "active" : ""}
+              >
+                Open Resume Builder
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/admin/airesumematcher"
+                className={isActive("/admin/airesumematcher") ? "active" : ""}
+              >
+                Learn How Resume Analyzer Works
+              </Link>
+            </li>
    
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/admin/savedjobs" style={{ textDecoration: "none", color: "inherit" }}>
-          View My Saved Jobs
-        </Link>
+            <li>
+              <Link
+                to="/admin/templatesettings"
+                className={isActive("/admin/templatesettings") ? "active" : ""}
+              >
+                Change Template Settings
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/admin/savedjobs"
+                className={isActive("/admin/savedjobs") ? "active" : ""}
+              >
+                View My Saved Jobs
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/admin/help-desk"
+                className={isActive("/admin/help-desk") ? "active" : ""}
+              >
+                Access Help Desk
+              </Link>
+            </li>
+          </ul>
+        )}
       </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/admin/help-desk" style={{ textDecoration: "none", color: "inherit" }}>
-          Access Help Desk
-        </Link>
+
+      <li style={{ padding: "10px", cursor: "pointer" }}>
+        <div
+          onClick={() => handleMenuClick("consultant")}
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <span>Consultant</span>
+          <FontAwesomeIcon
+            icon={
+              openMenus["consultant"]
+                ? faCircleChevronUp
+                : faCircleChevronDown
+            }
+          />
+        </div>
+        {openMenus["consultant"] && (
+          <ul style={{ listStyleType: "none", marginTop: "5px" }}>
+            <li>
+              <Link
+                to="/consultant/profilesetup"
+                className={isActive("/consultant/profilesetup") ? "active" : ""}
+              >
+                View or Edit Profile
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/consultant/managesubmissionsheets"
+                className={isActive("/consultant/managesubmissionsheets") ? "active" : ""}
+              >
+                View or Add Submission Sheets
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/consultant/managesatreports"
+                className={isActive("/consultant/managesatreports") ? "active" : ""}
+              >
+                Generate SAT Reports
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/consultant/resumebuilder"
+                className={isActive("/consultant/resumebuilder") ? "active" : ""}
+              >
+                Use Resume Builder
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/consultant/managesatreports"
+                className={isActive("/consultant/managesatreports") ? "active" : ""}
+              >
+                Learn How Resume Analyzer Works
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/consultant/airesumematcher"
+                className={isActive("/consultant/airesumematcher") ? "active" : ""}
+              >
+                Learn How AI Resume Matcher Works
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/consultant/emailtemplateguide"
+                className={isActive("/consultant/emailtemplateguide") ? "active" : ""}
+              >
+                Change Template Settings
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/admin/savedjobs"
+                className={isActive("/admin/savedjobs") ? "active" : ""}
+              >
+                View My Saved Jobs
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/consultant/help-desk"
+                className={isActive("/consultant/help-desk") ? "active" : ""}
+              >
+                Access Help Desk
+              </Link>
+            </li>
+          </ul>
+        )}
       </li>
-    </ul>
-  )}
-</li>
 
 
-<li style={{ padding: "10px", cursor: "pointer" }}>
-  <div
-    onClick={() => handleMenuClick("consultant")}
-    style={{
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-    }}
-  >
-    <span>Consultant</span>
-    <FontAwesomeIcon
-      icon={openMenus["consultant"] ? faCircleChevronUp : faCircleChevronDown}
-    />
-  </div>
-  {openMenus["consultant"] && (
-    <ul style={{ listStyleType: "none", marginTop: "5px" }}>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/consultant/profilesetup" style={{ textDecoration: "none", color: "inherit" }}>
-          View or Edit Profile
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/consultant/managesubmissionsheets" style={{ textDecoration: "none", color: "inherit" }}>
-          View or Add Submission Sheets
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/consultant/managesatreports" style={{ textDecoration: "none", color: "inherit" }}>
-          Generate SAT Reports
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/consultant/resumebuilder" style={{ textDecoration: "none", color: "inherit" }}>
-          Use Resume Builder
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/consultant/managesatreports" style={{ textDecoration: "none", color: "inherit" }}>
-          Learn How Resume Analyzer Works
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/consultant/airesumematcher" style={{ textDecoration: "none", color: "inherit" }}>
-          Learn How AI Resume Matcher Works
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/consultant/emailtemplateguide" style={{ textDecoration: "none", color: "inherit" }}>
-          Change Template Settings
-        </Link>
-      </li>
- 
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/admin/savedjobs" style={{ textDecoration: "none", color: "inherit" }}>
-          View My Saved Jobs
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/consultant/help-desk" style={{ textDecoration: "none", color: "inherit" }}>
-          Access Help Desk
-        </Link>
-      </li>
-    </ul>
-  )}
-</li>
-
-
-
-<li style={{ padding: "10px", cursor: "pointer" }}>
+      <li style={{ padding: "10px", cursor: "pointer" }}>
   <div
     onClick={() => handleMenuClick("superAdmin")}
     style={{
@@ -620,188 +929,270 @@ const Timesheet = () => {
   >
     <span>Super Admin</span>
     <FontAwesomeIcon
-      icon={openMenus["superAdmin"] ? faCircleChevronUp : faCircleChevronDown}
+      icon={
+        openMenus["superAdmin"]
+          ? faCircleChevronUp
+          : faCircleChevronDown
+      }
     />
   </div>
   {openMenus["superAdmin"] && (
     <ul style={{ listStyleType: "none", marginTop: "5px" }}>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/superadmin/organization" style={{ textDecoration: "none", color: "inherit" }}>
-          Manage Organization
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/superadmin/vendor" style={{ textDecoration: "none", color: "inherit" }}>
-          Manage Vendors
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/superadmin/client" style={{ textDecoration: "none", color: "inherit" }}>
-          Manage Clients
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/superadmin/organization-info" style={{ textDecoration: "none", color: "inherit" }}>
-          View Organization Info
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/superadmin/organization-settings" style={{ textDecoration: "none", color: "inherit" }}>
-          Update Organization Settings
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/superadmin/users" style={{ textDecoration: "none", color: "inherit" }}>
-          Manage Users
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/superadmin/admin" style={{ textDecoration: "none", color: "inherit" }}>
-          Admin Settings
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/superadmin/employers" style={{ textDecoration: "none", color: "inherit" }}>
-          Manage Employers
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/timesheet/consultantprofileedit" style={{ textDecoration: "none", color: "inherit" }}>
+  <li>
+        <Link
+          to="/timesheet/manageConsultantssuperadmin"
+          className={isActive("/timesheet/manageConsultantssuperadmin") ? "active" : ""}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
           Manage or Edit Consultants
         </Link>
       </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/superadmin/submissions-sheet" style={{ textDecoration: "none", color: "inherit" }}>
+  <li>
+        <Link
+          to="/timesheet/submissions-sheet"
+          className={isActive("/timesheet/submissions-sheet") ? "active" : ""}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
           View or Add Submission Sheets
         </Link>
       </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/superadmin/emails" style={{ textDecoration: "none", color: "inherit" }}>
+  <li>
+        <Link
+          to="/superadmin/emails"
+          className={isActive("/superadmin/emails") ? "active" : ""}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
           Manage E-mails
         </Link>
       </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/superadmin/email-templates" style={{ textDecoration: "none", color: "inherit" }}>
-          Manage E-mail Templates
+  <li>
+        <Link
+          to="/superadmin/emaillogs"
+          className={isActive("/superadmin/emaillogs") ? "active" : ""}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          E-mails Logs
         </Link>
       </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/superadmin/scheduler-settings" style={{ textDecoration: "none", color: "inherit" }}>
-          Update Scheduler Settings
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/superadmin/scheduler-logs" style={{ textDecoration: "none", color: "inherit" }}>
+  <li>
+        <Link
+          to="/superadmin/schedulersettings"
+          className={isActive("/superadmin/schedulersettings") ? "active" : ""}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
           View Scheduler Logs
         </Link>
       </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/superadmin/sat-reports" style={{ textDecoration: "none", color: "inherit" }}>
-          Generate SAT Reports
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/superadmin/userandbillingoverview" style={{ textDecoration: "none", color: "inherit" }}>
+  <li>
+        <Link
+          to="/superadmin/userandbillingoverview"
+          className={isActive("/superadmin/userandbillingoverview") ? "active" : ""}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
           View Billing Details
         </Link>
       </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/superadmin/purchase-services" style={{ textDecoration: "none", color: "inherit" }}>
-          Purchase Services
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/superadmin/payments" style={{ textDecoration: "none", color: "inherit" }}>
-          View Payments
-        </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/superadmin/manageconsultantlicenses" style={{ textDecoration: "none", color: "inherit" }}>
+  <li>
+        <Link
+          to="/superadmin/manageconsultantlicenses"
+          className={isActive("/superadmin/manageconsultantlicenses") ? "active" : ""}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
           View My Licenses
         </Link>
       </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/superadmin/manageorders" style={{ textDecoration: "none", color: "inherit" }}>
+  <li>
+        <Link
+          to="/superadmin/manageorders"
+          className={isActive("/superadmin/manageorders") ? "active" : ""}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
           View My Orders
         </Link>
       </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/superadmin/resumebuilder" style={{ textDecoration: "none", color: "inherit" }}>
+  <li>
+        <Link
+          to="/superadmin/resumeBuilderGuide"
+          className={isActive("/superadmin/resumeBuilderGuide") ? "active" : ""}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
           Use Resume Builder
         </Link>
       </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/superadmin/airesumematcher" style={{ textDecoration: "none", color: "inherit" }}>
+  <li>
+        <Link
+          to="/superadmin/resumeAnalyzerGuide"
+          className={isActive("/superadmin/resumeAnalyzerGuide") ? "active" : ""}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
           Learn How Resume Analyzer Works
         </Link>
       </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/superadmin/airesumematcher" style={{ textDecoration: "none", color: "inherit" }}>
+  <li>
+        <Link
+          to="/superadmin/airesumematcher"
+          className={isActive("/superadmin/airesumematcher") ? "active" : ""}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
           Learn How AI Resume Matcher Works
         </Link>
       </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/superadmin/emailtemplateguide" style={{ textDecoration: "none", color: "inherit" }}>
+  <li>
+        <Link
+          to="/superadmin/savedResumes"
+          className={isActive("/superadmin/savedResumes") ? "active" : ""}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          Saved Resumes
+        </Link>
+      </li>
+  <li>
+        <Link
+          to="/admin/savedjobs"
+          className={isActive("/admin/savedJobs") ? "active" : ""}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          Saved Job
+        </Link>
+      </li>
+  <li>
+        <Link
+          to="/superadmin/emailtemplateguide"
+          className={isActive("/superadmin/emailtemplateguide") ? "active" : ""}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
           Change Template Settings
         </Link>
       </li>
- 
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/superadmin/savedjobs" style={{ textDecoration: "none", color: "inherit" }}>
+  <li>
+        <Link
+          to="/superadmin/RestrictionLoginStatus"
+          className={isActive("/superadmin/RestrictionLoginStatus") ? "active" : ""}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          Restriction Login Status
+        </Link>
+      </li>
+  {/* <li>
+        <Link
+          to="/superadmin/savedjobs"
+          className={isActive("/superadmin/savedjobs") ? "active" : ""}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
           View My Saved Jobs
         </Link>
-      </li>
-      <li style={{ padding: "5px 0" }}>
-        <Link to="/superadmin/help-desk" style={{ textDecoration: "none", color: "inherit" }}>
-          Access Help Desk
+      </li> */}
+  <li>
+        <Link
+          to="/superadmin/RestrictModuleAccess"
+          className={isActive("/superadmin/RestrictModuleAccess") ? "active" : ""}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          Restricting Module Access
         </Link>
       </li>
+  <li>
+        <Link
+          to="/superadmin/AdminLoginStatus"
+          className={isActive("/superadmin/AdminLoginStatus") ? "active" : ""}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          Restriction Admin Login
+        </Link>
+      </li>
+  <li>
+        <Link
+          to="/superadmin/EmployerLoginStatus"
+          className={isActive("/superadmin/EmployerLoginStatus") ? "active" : ""}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          Employer Login Status
+        </Link>
+      </li>
+  <li>
+        <Link
+          to="/superadmin/ConsultantStatusManagement"
+          className={isActive("/superadmin/ConsultantStatusManagement") ? "active" : ""}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          Consultant Status Management
+        </Link>
+      </li>
+  <li>
+        <Link
+          to="/superadmin/AdminAccessManagement"
+          className={isActive("/superadmin/AdminAccessManagement") ? "active" : ""}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          Admin Access Management
+        </Link>
+      </li>
+  <li>
+        <Link
+          to="/superadmin/GenerateSATReport"
+          className={isActive("/superadmin/GenerateSATReport") ? "active" : ""}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          Generate SAT Report
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="/superadmin/AdminProfile"
+          className={isActive("/superadmin/AdminProfile") ? "active" : ""}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+Admin Profile
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="/superadmin/AdminAccessControl"
+          className={isActive("/superadmin/AdminAccessControl") ? "active" : ""}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+      Admin Access Control
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="/superadmin/AssignLicensesToConsultant"
+          className={isActive("/superadmin/AssignLicensesToConsultant") ? "active" : ""}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+ Assign Licenses To Consultant
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="/superadmin/SATReportGuide"
+          className={isActive("/superadmin/SATReportGuide") ? "active" : ""}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+        SAT Report Guide
+        </Link>
+      </li>
+  {/* <li>
+        <Link
+          to="/superadmin/help-desk"
+          className={isActive("/superadmin/help-desk") ? "active" : ""}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          Access Help Desk
+        </Link>
+      </li> */}
     </ul>
   )}
 </li>
 
-      {/* Submitted Sheets */}
-      <li style={{ padding: "10px", cursor: "pointer" }}>
-        <div
-          onClick={() => handleMenuClick("submittedSheets")}
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <span>Submitted Sheets</span>
-          <FontAwesomeIcon
-            icon={openMenus["submittedSheets"] ? faCircleChevronUp : faCircleChevronDown}
-          />
-        </div>
-        {openMenus["submittedSheets"] && (
-          <ul style={{ listStyleType: "none", marginTop: "5px" }}>
-            <li style={{ padding: "5px 0" }}>
-              <Link to="/timesheet/check-submitted-sheets" style={{ textDecoration: "none", color: "inherit" }}>
-                Check Submission Status
-              </Link>
-            </li>
-            <li style={{ padding: "5px 0" }}>
-              <Link to="/timesheet/review-submitted-sheets" style={{ textDecoration: "none", color: "inherit" }}>
-                Review Submitted Sheets
-              </Link>
-            </li>
-          </ul>
-        )}
-      </li>
 
+            {/* Repeat similar structure for Sheet, Submitted Sheets, Approved Sheets, Pending Sheets, Rejected Sheets, and Recalled Sheets */}
 
-
-{/* Repeat similar structure for Sheet, Submitted Sheets, Approved Sheets, Pending Sheets, Rejected Sheets, and Recalled Sheets */}
-
-          <li style={{ padding: "10px", cursor: "pointer" }}>
-          {/* <h3 >Gatnix Help Topics</h3> */}
-          </li>
-    
-       
-         
             <li style={{ padding: "10px", cursor: "pointer" }}>
+              {/* <h3 >Gatnix Help Topics</h3> */}
+            </li>
+
+            {/* <li style={{ padding: "10px", cursor: "pointer" }}>
        
               <Link
                 to="/timesheet/consultant-data"
@@ -809,14 +1200,14 @@ const Timesheet = () => {
               >
                Create A Project
               </Link>
-            </li>
-            <li style={{ padding: "10px", cursor: "pointer" }}>
+            </li> */}
+            {/* <li style={{ padding: "10px", cursor: "pointer" }}>
             
-              {/* <Link to="/timesheet/troubleshooting" style={{ textDecoration: "none", color: "inherit" }}> */}
+              <Link to="/timesheet/troubleshooting" style={{ textDecoration: "none", color: "inherit" }}>
               Create Time Sheet
-              {/* </Link> */}
-            </li>
-            <li style={{ padding: "10px", cursor: "pointer" }}>
+              </Link>
+            </li> */}
+            {/* <li style={{ padding: "10px", cursor: "pointer" }}>
             
               <Link
                 to="/timesheet/satreportgeneration"
@@ -824,9 +1215,9 @@ const Timesheet = () => {
               >
                 SATReportGeneration
               </Link>
-            </li>
+            </li> */}
 
-            <li style={{ padding: "10px", cursor: "pointer" }}>
+            {/* <li style={{ padding: "10px", cursor: "pointer" }}>
           
               <Link
                 to="/timesheet/consultantprofileedit"
@@ -1042,14 +1433,33 @@ const Timesheet = () => {
               >
                 Saved Jobs
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
-
+        <div
+          className="hamburger"
+          onClick={toggleSidebarVisibility}
+          style={{
+            position: "absolute",
+            top: "10px",
+            left: "10px",
+            zIndex: 1000,
+            cursor: "pointer",
+            fontSize: "1.5rem",
+          }}
+        >
+          <FontAwesomeIcon icon={isSidebarVisible ? faTimes : faBars} />
+        </div>
         {/* Content Area */}
         <div
           className="content-area"
-          style={{ flex: "1", padding: "20px", backgroundColor: "white" , height:'90vh', overflowY:'scroll'}}
+          style={{
+            flex: "1",
+            padding: "20px",
+            backgroundColor: "white",
+            height: "90vh",
+            overflowY: "scroll",
+          }}
         >
           {content}
         </div>

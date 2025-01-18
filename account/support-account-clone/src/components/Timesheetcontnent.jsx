@@ -33,9 +33,10 @@ const Timesheetcontnent = () => {
                 </p>
 
                 <img 
-                    src="https://45323494.fs1.hubspotusercontent-na1.net/hubfs/45323494/Screenshot%202024-12-26%20172409-png.png" 
+                    src="https://res.cloudinary.com/dvcdrb9s4/image/upload/v1737029075/Screenshot_2025-01-16_at_5.34.26_PM_v8egtt.png" 
                     alt="Timesheet Management" 
-                    className="placeholder-image"
+                    className="placeholder-image 
+ image_gatnix_support"
                 />
             </div>
         </div>

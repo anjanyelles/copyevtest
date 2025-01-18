@@ -41,6 +41,7 @@ const UserAndBillingOverview = () => {
                     </li>
                 </ul>
 
+<img src='https://res.cloudinary.com/dvcdrb9s4/image/upload/v1736939030/Screenshot_2025-01-15_at_2.31.16_PM_n7czgt.png'  alt='resune'   className='placeholder-image image_gatnix_support'/>
                 {/* Section: Billing Information */}
                 <h4 style={{ fontSize: "18px", fontWeight: "300", color: "#000", marginTop: "10px", marginBottom: "10px" }}>
                     Billing Information
@@ -50,11 +51,10 @@ const UserAndBillingOverview = () => {
                 </p>
 
                 {/* Placeholder Image */}
-                <img
-                    src="https://45323494.fs1.hubspotusercontent-na1.net/hubfs/45323494/Screenshot%202024-12-26%20171450-png.png"
-                    alt="User and Billing Overview"
-                    style={{ width: "60%", height: "auto", marginBottom: "20px" }}
-                />
+                <p>
+        If you encounter any issues, please reach out to our Help Desk or
+        contact us at <a href="mailto:support@gatnix.com">support@gatnix.com</a>.
+      </p>
             </div>
         </div>
     );

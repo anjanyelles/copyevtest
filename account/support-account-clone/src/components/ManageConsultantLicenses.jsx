@@ -32,7 +32,8 @@ const ManageConsultantLicenses = () => {
                 <img 
                     src="https://45323494.fs1.hubspotusercontent-na1.net/hubfs/45323494/Screenshot%202024-12-26%20171948-png.png" 
                     alt="Manage Consultant Licenses" 
-                    className="placeholder-image"
+                    className="placeholder-image 
+ image_gatnix_support"
                 />
             </div>
         </div>

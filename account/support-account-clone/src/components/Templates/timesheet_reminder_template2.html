@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Sheet Reminder</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    }
+    .header {
+      text-align: center;
+      background-color: #673ab7;
+      color: white;
+      padding: 15px 0;
+      border-radius: 10px 10px 0 0;
+    }
+    .button {
+      display: block;
+      width: fit-content;
+      margin: 20px auto;
+      padding: 10px 20px;
+      color: white;
+      background: #673ab7;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    @media (max-width: 480px) {
+      .container {
+        padding: 15px;
+      }
+      .button {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Time Sheet Reminder</h1>
+    </div>
+    <p>Dear [Employee's Name],</p>
+    <p>Your time sheet <strong>(Time Sheet ID: [XXXX])</strong> for:</p>
+    <ul>
+      <li><strong>Project Name:</strong> [XXXX]</li>
+      <li><strong>Project ID:</strong> [XXXXX]</li>
+    </ul>
+    <p>is currently marked as "In Progress." Please submit it at your earliest convenience.</p>
+    <a href="#" class="button">Submit Time Sheet</a>
+    <p>If you have any questions, feel free to contact us.</p>
+    <p>Thank you!<br>Gatnix Time Sheets</p>
+  </div>
+</body>
+</html>

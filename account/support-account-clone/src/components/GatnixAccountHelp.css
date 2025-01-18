@@ -119,10 +119,107 @@ ul > li > a {
   background-color: #f1f1f1;
 }
 
-.placeholder-image {
+.placeholder-image 
+ image_gatnix_support {
   margin: 20px 0;
   max-width: 100%;
   height: auto;
   border-radius: 4px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none; /* Hide sidebar by default on mobile */
+    
+  }
+  .hamburger {
+    display: block; /* Show hamburger icon on mobile */
+  }
+  .hamburger11{
+    display: none;
+  }
+  .navlink11{
+    display: none;
+  }
+  .user-section{
+    display: none;
+  }
+  .hamburger{
+    position: absolute;
+    top: 2rem !important;
+  }
+
+
+}
+
+@media only screen and (max-width: 768px) {
+  .sidebar {
+
+    flex: 1 0 0% !important; /* Adjust flex for smaller screens */
+  }
+
+}
+@media (min-width: 769px) {
+  .sidebar {
+    display: flex; /* Show sidebar by default on desktop */
+  }
+  .hamburger {
+    display: none; /* Hide hamburger icon on desktop */
+  }
+  
+
+}
+
+ul > li > div {
+  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    
+    
+}
+
+
+
+li a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+li a:hover {
+  color: #363a3f; /* Hover color */
+  background-color: #f8f9fa; /* Optional hover background */
+}
+
+li a.active {
+  color: #2e3135; /* Active link color */
+  font-weight: bold;
+  border-left: 4px solid #e88025; /* Highlight for active link */
+  padding-left: 6px; /* Adjust padding to account for border */
+}
+
+ul {
+  margin-left: 4px !important;
+}
+
+
+.image_gatnix_support{
+    width: 60%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .image_gatnix_support{
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
 }

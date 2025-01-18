@@ -2,6 +2,8 @@ import React from 'react';
 import './Footer1.css'; // Add CSS for styling
 
 const Footer1 = () => {
+  const baseURL = 'https://www.gatnix.com'; // Base URL for all internal links
+  
   return (
     <footer className="footer">
       <div className="footer-section">
@@ -23,7 +25,7 @@ const Footer1 = () => {
             </a>
           </li>
           <li>
-            <a href="https://www.linkedin.com/uas/login?session_redirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2F95730476%2Fadmin%2Fdashboard" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/company/95730476/admin/dashboard" target="_blank" rel="noopener noreferrer">
               <i className="fa fa-linkedin" aria-hidden="true"></i>
             </a>
           </li>
@@ -37,53 +39,55 @@ const Footer1 = () => {
       <div className="footer-section">
         <ul>
           <h4>Products</h4>
-          <li>Smart Application Tracker</li>
-          <li>Job Board</li>
-          <li>Automatic AI Resume Matcher</li>
-          <li>Recruitment Portal</li>
-          <li>Timesheet Portal</li>
+          <li><a href={`${baseURL}/sat/individual`}>Smart Application Tracker</a></li>
+          <li><a href={`${baseURL}/profile`}>Job Board</a></li>
+          <li><a href={`${baseURL}/resume/ai-resume-builder`}>Automatic AI Resume Matcher</a></li>
+          <li><a href={`${baseURL}/recruitment-portal`}>Recruitment Portal</a></li>
+          <li><a href="https://timesheet.gatnix.com/" target="_blank">Timesheet Portal</a></li>
         </ul>
       </div>
       <div className="footer-section">
         <ul>
           <h4>Company</h4>
-          <li>About Company</li>
-          <li>For Recruiters</li>
-          <li>Blog & News</li>
-          <li>Careers & Job Board</li>
-          <li>Contact Us</li>
+          <li><a href={`${baseURL}/about`}>About Company</a></li>
+          <li><a href={`${baseURL}/profile`}>For Recruiters</a></li>
+          <li><a href="https://blog.gatnix.com/blog" target="_blank">Blog & News</a></li>
+          <li><a href={`${baseURL}/careers`}>Careers & Job Board</a></li>
+          <li><a href={`${baseURL}/contact`}>Contact Us</a></li>
         </ul>
       </div>
       <div className="footer-section">
         <ul>
           <h4>Learn</h4>
-          <li>Terms & Conditions</li>
-          <li>Privacy & Service</li>
-          <li>Refund Policy</li>
-          <li>Help Center</li>
+          <li><a href={`${baseURL}/learn/terms-of-service`}>Terms & Conditions</a></li>
+          <li><a href={`${baseURL}/learn/privacy-policy`}>Privacy & Service</a></li>
+          <li><a href={`${baseURL}/learn/refund-policy`}>Refund Policy</a></li>
+          <li><a href="https://gatnix.atlassian.net/servicedesk/customer/portal/3" target="_blank">Help Center</a></li>
         </ul>
       </div>
       <div className="footer-section">
         <ul>
           <h4>For Individuals</h4>
-          <li>SAT-Individuals</li>
-          <li>AI Resume Builder</li>
-          <li>AI Resume Matcher</li>
-          <li>Resume Analyzer</li>
-          <li>Timesheets</li>
+          <li><a href={`${baseURL}/sat/individual`}>SAT-Individuals</a></li>
+          <li><a href={`${baseURL}/resume/ai-resume-builder`}>AI Resume Builder</a></li>
+          <li><a href={`${baseURL}/resume/ai-resume-matcher`}>AI Resume Matcher</a></li>
+          <li><a href={`${baseURL}/resume/resume-analyzer`}>Resume Analyzer</a></li>
+          <li><a href={`${baseURL}/timesheets`}>Timesheets</a></li>
         </ul>
       </div>
       <div className="footer-section">
         <ul>
           <h4>For Employers</h4>
-          <li>SAT-Employers</li>
-          <li>ATS-Recruiters</li>
-          <li>Resume Analyzer</li>
-          <li>Recruitment Solutions</li>
+          <li><a href={`${baseURL}/sat/employer`}>SAT-Employers</a></li>
+          <li><a href={`${baseURL}/ats-recruiters`}>ATS-Recruiters</a></li>
+          <li><a href={`${baseURL}/resume/resume-analyzer`}>Resume Analyzer</a></li>
+          <li><a href={`${baseURL}/recruitment-solutions`}>Recruitment Solutions</a></li>
         </ul>
       </div>
       <div className="footer-bottom">
-        <div className="footer-copyright">Copyright © Gatnix 2024</div>
+        <div className="footer-copyright">
+          Copyright © <a href="https://www.gatnix.com/home" target="_blank">Gatnix</a> 2024
+        </div>
       </div>
     </footer>
   );
