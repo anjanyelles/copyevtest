@@ -68,7 +68,11 @@ const ViewSubmittedSheets = () => {
                     Use this table to quickly access submission details and their current status. For further actions or edits, reach out to the respective stakeholders.
                 </p>
 
-             
+                <img
+                className="placeholder-image image_gatnix_support"
+                src="  https://res.cloudinary.com/danfpnuui/image/upload/v1737375336/Submitted_sheets_qdqx6t.png"
+                alt="Employee Table Screenshot"
+            />
             </div>
 
             <style jsx>{`

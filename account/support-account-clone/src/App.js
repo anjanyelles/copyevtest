@@ -107,18 +107,19 @@ import NavBar from './components/NavBar';
 import Showcase from './components/Showcase';
 import HomeCards from './components/HomeCards';
 import XboxSection from './components/XboxSection';
-import CarbonSection from './components/CarbonSection';
-import FollowUs from './components/FollowUs';
+import CarbonSection from './components/TimeSheetFolder/CarbonSection';
+import FollowUs from './components/TimeSheetFolder/FollowUs';
 import LinksSection from './components/LinksSection';
 import Footer from './components/Footer';
 import Timeline from './components/Timeline';
 import ManageSubscription from './components/ManageSubscription';
-import MicrosoftAccountHelp from './components/GatnixAccountHelp';
-import GatnixTimesheetHelp from './components/GatnixTimesheetHelp';
+import MicrosoftAccountHelp from './components/TimeSheetFolder/GatnixAccountHelp';
+import GatnixTimesheetHelp from './components/TimeSheetFolder/GatnixTimesheetHelp';
 import Troubleshooting from './components/Troubleshooting';
 import Footer1 from './components/Footer1';
-import GatnixAccountHelproute from './components/GatnixAccountHelproute';
+import GatnixAccountHelproute from './components/TimeSheetFolder/GatnixAccountHelproute';
 import Timesheet from './components/Timesheet';
+import SAT from './components/SAT';
 
 const App = () => (
   <Router>
@@ -127,15 +128,20 @@ const App = () => (
 
 
 <Route path="/" element={<Timeline />} /> 
-<Route path="/accounthelp/*" element={<Troubleshooting />} />
-<Route path="/timesheet/*" element={<Timesheet />} />
-<Route path="/admin/*" element={<Timesheet />} />
-<Route path="/superadmin/*" element={<Timesheet />} />
-<Route path="/employee/*" element={<Timesheet />} />
-<Route path="/consultant/*" element={<Timesheet />} />
-<Route path="/approverManagers/*" element={<Timesheet />} />
+<Route path="time/accounthelp/*" element={<Troubleshooting />} />
+<Route path="time/timesheet/*" element={<Timesheet />} />
+<Route path="time/admin/*" element={<Timesheet />} />
+<Route path="time/superadmin/*" element={<Timesheet />} />
+<Route path="time/employee/*" element={<Timesheet />} />
+<Route path="time/consultant/*" element={<Timesheet />} />
+<Route path="time/approverManagers/*" element={<Timesheet />} />
 
-
+<Route path="/sat/timesheet/*" element={<SAT />} />
+<Route path="/sat/admin/*" element={<SAT />} />
+<Route path="/sat/superadmin/*" element={<SAT />} />
+<Route path="/sat/employee/*" element={<SAT />} />
+<Route path="/sat/consultant/*" element={<SAT />} />
+<Route path="/sat/approverManagers/*" element={<SAT />} />
 
 <Route path="/GatnixAccountHelproute/*" element={<GatnixAccountHelproute />} />
 

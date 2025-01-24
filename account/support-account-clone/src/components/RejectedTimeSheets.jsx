@@ -36,6 +36,11 @@ const RejectedTimeSheets = () => {
                         </tbody>
                     </table>
                 </div>
+                <img
+                className="placeholder-image image_gatnix_support"
+                src="  https://res.cloudinary.com/danfpnuui/image/upload/v1737375724/Rejected_sheets-3_l7mejj.png"
+                alt="Employee Table Screenshot"
+            />
             </div>
         </div>
     );

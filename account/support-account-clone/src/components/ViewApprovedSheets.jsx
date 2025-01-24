@@ -50,7 +50,11 @@ const ViewApprovedSheets = () => {
                         </tbody>
                     </table>
                 </div>
-
+                <img
+                className="placeholder-image image_gatnix_support"
+                src="  https://res.cloudinary.com/danfpnuui/image/upload/v1737375497/Approval_sheets_vumjae.png"
+                alt="Employee Table Screenshot"
+            />
                 <p className="closing-text">
                     The above table provides a detailed summary of all approved timesheets, including the approval status and any comments provided by the approvers.
                 </p>

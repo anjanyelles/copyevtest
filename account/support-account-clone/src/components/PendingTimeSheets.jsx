@@ -35,7 +35,11 @@ const PendingTimeSheets = () => {
                         </tbody>
                     </table>
                 </div>
-
+                <img
+                className="placeholder-image image_gatnix_support"
+                src="  https://res.cloudinary.com/danfpnuui/image/upload/v1737375592/Pending_sheets-1_hwm7li.png"
+                alt="Employee Table Screenshot"
+            />
             </div>
         </div>
     );

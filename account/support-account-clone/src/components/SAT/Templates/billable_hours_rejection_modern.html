@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timesheet Rejection</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 30px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background-color: #f18622;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 22px;
+            text-align: center;
+        }
+
+        .content {
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        .content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .content ul li {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 4px;
+        }
+
+        .action-btn {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .action-btn a {
+            background-color: #f18622;
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .footer {
+            font-size: 12px;
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Timesheet #[Timesheet_ID] Rejected - Billable Hours Clarification</h1>
+        </div>
+        <div class="content">
+            <p>Dear [Employee Name],</p>
+            <p>Your timesheet #[Timesheet_ID] for the period [Start_Date] to [End_Date] has been rejected due to unclear billable hours entries. Please review the following details:</p>
+            <ul>
+                <li><strong>Rejected By:</strong> [Manager/Super Admin Name]</li>
+                <li><strong>Employee Name:</strong> [XXXX]</li>
+                <li><strong>Project Name:</strong> [XXXX]</li>
+                <li><strong>Project ID:</strong> [XXXX]</li>
+                <li><strong>Date:</strong> [Current_Date]</li>
+                <li><strong>Status:</strong> Returned for Revision</li>
+            </ul>
+            <p><strong>Reason for Rejection:</strong> [XXXX]</p>
+            <p><strong>Deadline:</strong> Please complete these corrections by [Due_Date]</p>
+            <p>For any questions, feel free to contact <a href="mailto:support@gatnix.com">support@gatnix.com</a>.</p>
+            <div class="action-btn">
+                <a href="https://gatnix.com/timesheet/[Timesheet_ID]">Review and Update</a>
+            </div>
+        </div>
+        <div class="footer">
+            <p>This is an automated notification. Please do not reply.</p>
+        </div>
+    </div>
+</body>
+</html>

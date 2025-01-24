@@ -4,74 +4,23 @@ import { Link } from "react-router-dom";
 
 const TrendingTopics = () => {
   return (
+    <>
     <section className="trending-topics">
       <h2 style={{ textAlign: "center", padding: "20px", margin: "20px" }}>
-        Trending Topics
+         Trending Topics in Timesheet Management
       </h2>
       <div
         className="topics-grid"
         style={{ display: "flex", alignItems: "center" }}
       >
         <div className="itemwrapmedia">
-          <div>
-            <h3 style={{ marginLeft: "1rem" }}>Admin</h3>
-            <ul style={{ listStyleType: "none", padding: 0 }}>
-              <li>
-                <Link
-                  to="/admin/viewEmployer"
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  Manage Employer
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/admin/viewconsultantdetails"
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  Manage Consultant
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/admin/restrictEmployers"
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  View or Restrict Employers
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/admin/restrictConsultants"
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  View or Restrict Consultants
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/admin/managesubmissionsheets"
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  View or Add Submission Sheets
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/timesheet/managesatreports"
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  Generate SAT Reports
-                </Link>
-              </li>
-            </ul>
-          </div>
+    
           <div>
             <h3 style={{ marginLeft: "1rem" }}>Super Admin</h3>
             <ul style={{ listStyleType: "none", padding: 0 }}>
               <li>
                 <Link
-                  to="/superadmin/organization"
+                  to="/time/superadmin/organization"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   Manage Organization
@@ -79,7 +28,7 @@ const TrendingTopics = () => {
               </li>
               <li>
                 <Link
-                  to="/superadmin/vendor"
+                  to="/time/superadmin/vendor"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   Manage Vendors
@@ -87,7 +36,7 @@ const TrendingTopics = () => {
               </li>
               <li>
                 <Link
-                  to="/superadmin/client"
+                  to="/time/superadmin/client"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   Manage Clients
@@ -95,7 +44,7 @@ const TrendingTopics = () => {
               </li>
               <li>
                 <Link
-                  to="/superadmin/organization-info"
+                  to="/time/superadmin/organization-info"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   View Organization Info
@@ -103,7 +52,7 @@ const TrendingTopics = () => {
               </li>
               <li>
                 <Link
-                  to="/superadmin/organization-settings"
+                  to="/time/superadmin/organization-settings"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   Update Organization Settings
@@ -111,7 +60,7 @@ const TrendingTopics = () => {
               </li>
               <li>
                 <Link
-                  to="/superadmin/users"
+                  to="/time/superadmin/users"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   Manage Users
@@ -124,7 +73,7 @@ const TrendingTopics = () => {
             <ul style={{ listStyleType: "none", padding: 0 }}>
               <li>
                 <Link
-                  to="/approverManagers"
+                  to="/time/approverManagers"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   Approver Managers
@@ -132,7 +81,7 @@ const TrendingTopics = () => {
               </li>
               <li>
                 <Link
-                  to="/approverManagers/profile"
+                  to="/time/approverManagers/profile"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   View or Edit Your Profile
@@ -140,7 +89,7 @@ const TrendingTopics = () => {
               </li>
               <li>
                 <Link
-                  to="/approverManagers/employee"
+                  to="/time/approverManagers/employee"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   Add or View Employee
@@ -148,7 +97,7 @@ const TrendingTopics = () => {
               </li>
               <li>
                 <Link
-                  to="/approverManagers/client"
+                  to="/time/approverManagers/client"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   Add or View Client
@@ -156,7 +105,7 @@ const TrendingTopics = () => {
               </li>
               <li>
                 <Link
-                  to="/approverManagers/project"
+                  to="/time/approverManagers/project"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   Create or Edit Project
@@ -164,7 +113,7 @@ const TrendingTopics = () => {
               </li>
               <li>
                 <Link
-                  to="/approverManagers/timesheet"
+                  to="/time/approverManagers/timesheet"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   View All TimeSheets
@@ -177,7 +126,7 @@ const TrendingTopics = () => {
             <ul style={{ listStyleType: "none", padding: 0 }}>
               <li>
                 <Link
-                  to="/employee/profile"
+                  to="/time/employee/profile"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   View or Edit Profile
@@ -185,7 +134,7 @@ const TrendingTopics = () => {
               </li>
               <li>
                 <Link
-                  to="/employee/timesheet"
+                  to="/time/employee/timesheet"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   TimeSheet
@@ -193,7 +142,7 @@ const TrendingTopics = () => {
               </li>
               <li>
                 <Link
-                  to="/employee/timesubmittedSheets"
+                  to="/time/employee/timesubmittedSheets"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   View Submitted Sheets
@@ -201,7 +150,7 @@ const TrendingTopics = () => {
               </li>
               <li>
                 <Link
-                  to="/employee/approvedsheets"
+                  to="/time/employee/approvedsheets"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   View Approved Sheets
@@ -209,7 +158,7 @@ const TrendingTopics = () => {
               </li>
               <li>
                 <Link
-                  to="/employee/pendingtimesheets"
+                  to="/time/employee/pendingtimesheets"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   View Pending Sheets
@@ -217,7 +166,7 @@ const TrendingTopics = () => {
               </li>
               <li>
                 <Link
-                  to="/employee/rejectedtimesheets"
+                  to="/time/employee/rejectedtimesheets"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   View Rejected Sheets
@@ -225,80 +174,8 @@ const TrendingTopics = () => {
               </li>
             </ul>
           </div>
-          <div>
-            <h3 style={{ marginLeft: "1rem" }}>Consultant</h3>
-            <ul style={{ listStyleType: "none", padding: 0 }}>
-              <li>
-                <Link
-                  to="/consultant/profilesetup"
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  View or Edit Profile
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/consultant/managesubmissionsheets"
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  View or Add Submission Sheets
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/consultant/managesatreports"
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  Generate SAT Reports
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/consultant/resumebuilder"
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  Use Resume Builder
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/consultant/managesatreports"
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  Learn How Resume Analyzer Works
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/consultant/airesumematcher"
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  Learn How AI Resume Matcher Works
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
 
 
-         
-
-        <div className="itemwrapmedia">
-          <div>
-            <h3 style={{ marginLeft: "1rem" }}>Gatnix Account & Storage</h3>
-            <ul >
-            <Link to="/GatnixAccountHelproute/sign-in-help"                style={{ textDecoration: "none", color: "inherit" }}>
-              {" "}
-              <li>Sign in to your Gatnix account</li>
-            </Link>
-            <Link to="/GatnixAccountHelproute/password-recovery"               style={{ textDecoration: "none", color: "inherit" }}>
-              <li>Reset your Gatnix password</li>
-            </Link>
-            <Link to="/approverManagers/profile"               style={{ textDecoration: "none", color: "inherit" }}>
-              <li>Learn how Gatnix Cloud storage works</li>
-            </Link>
-          </ul>
-          </div>
 
 
           <div>
@@ -353,12 +230,273 @@ const TrendingTopics = () => {
             </Link>
           </ul>
           </div>
+          <div>
+            <h3 style={{ marginLeft: "1rem" }}>Gatnix Account & Storage</h3>
+            <ul >
+            <Link to="/GatnixAccountHelproute/sign-in-help"                style={{ textDecoration: "none", color: "inherit" }}>
+              {" "}
+              <li>Sign in to your Gatnix account</li>
+            </Link>
+            <Link to="/GatnixAccountHelproute/password-recovery"               style={{ textDecoration: "none", color: "inherit" }}>
+              <li>Reset your Gatnix password</li>
+            </Link>
+            <Link to="/sat/approverManagers/profile"               style={{ textDecoration: "none", color: "inherit" }}>
+              <li>Learn how Gatnix Cloud storage works</li>
+            </Link>
+          </ul>
+          </div>
+
+
+
         </div>
+
+
+         
+
+    
 
 
         <div></div>
       </div>
     </section>
+
+    
+    <section className="trending-topics">
+      <h2 style={{ textAlign: "center", padding: "20px", margin: "20px" }}>
+         Trending Topics in SAT Management
+      </h2>
+      <div
+        className="topics-grid"
+        style={{ display: "flex", alignItems: "center" }}
+      >
+        <div className="itemwrapmedia">
+          <div>
+            <h3 style={{ marginLeft: "1rem" }}>Admin</h3>
+            <ul style={{ listStyleType: "none", padding: 0 }}>
+              <li>
+                <Link
+                  to="/sat/admin/adminviewEmployee"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  Manage Employer
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/sat/admin/adminviewEmployee"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  Manage Consultant
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/sat/admin/adminrestrictEmployers"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  View or Restrict Employers
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/sat/admin/adminrestrictConsultants"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  View or Restrict Consultants
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/sat/admin/managesubmissionsheets"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  View or Add Submission Sheets
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/sat/admin/adminmanagesatreports"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  Generate SAT Reports
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 style={{ marginLeft: "1rem" }}>Super Admin</h3>
+            <ul style={{ listStyleType: "none", padding: 0 }}>
+              <li>
+                <Link
+                  to="/sat/timesheet/submissions-sheet"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+               View or Add Submission Sheets
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/sat/superadmin/emails"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                Manage E-mails
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/sat/superadmin/schedulersettings"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                View Scheduler Logs
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/sat/superadmin/manageconsultantlicenses"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+View My Licenses
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/sat/superadmin/resumeAnalyzerGuide"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+             How Resume Analyzer Works
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/sat/superadmin/savedResumes"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                Saved Resumes
+                </Link>
+              </li>
+            </ul>
+          </div>
+    
+          <div>
+            <h3 style={{ marginLeft: "1rem" }}>Employer</h3>
+            <ul style={{ listStyleType: "none", padding: 0 }}>
+              <li>
+                <Link
+                  to="/sat/consultant/consultantprofile"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  View or Edit Profile
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/sat/consultant/consultantresumebuilder"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+               Use Resume Builder
+                </Link>
+              </li>
+            
+              <li>
+                <Link
+                  to="/sat/consultant/consultantresumeanalyzer"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+             Resume Analyzer Works
+
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/sat/consultant/consultantemailtemplateguide"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+       Change Template Settings
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/sat/consultant/consultantsavedjobs"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+
+View My Saved Jobs
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/sat/consultant/managesubmissionsheets"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                 View or Add Submission Sheets
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+
+            <h3 style={{ marginLeft: "1rem" }}>Consultant</h3>
+            <ul style={{ listStyleType: "none", padding: 0 }}>
+              <li>
+                <Link
+                  to="/sat/consultant/profilesetup"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+               View or Edit Profile
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/sat/consultant/managesatreport"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+              Generate SAT Reports
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/sat/consultant/emailtemplateguide"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+            Change Template Settings
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/sat/consultant/resumebuilder"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  Use Resume Builder
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/sat/employee/employeesavedjobs"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+        View My Saved Jobs
+                </Link>
+              </li>
+     
+            </ul>
+          </div>
+        </div>
+
+
+         
+
+    
+
+
+        <div></div>
+      </div>
+    </section>
+
+
+
+
+
+    </>
   );
 };
 

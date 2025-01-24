@@ -45,6 +45,11 @@ const RecalledTimeSheets = () => {
                     Employees can recall timesheets when they detect errors or need to make adjustments. Recalled timesheets are returned for corrections and must be resubmitted for approval.
                 </p>
             </div>
+            <img
+                className="placeholder-image image_gatnix_support"
+                src="  https://res.cloudinary.com/danfpnuui/image/upload/v1737375724/Rejected_sheets-3_l7mejj.png"
+                alt="Employee Table Screenshot"
+            />
         </div>
     );
 };
