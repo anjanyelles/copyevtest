@@ -1,0 +1,142 @@
+# ============================================
+# Root-level .gitignore for Disha Project
+# ============================================
+
+# ============================================
+# Java / Maven / Spring Boot
+# ============================================
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.log
+*.ctxt
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# ============================================
+# Node.js / React / Frontend
+# ============================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+.pnp/
+.pnp.js
+
+# Build outputs
+build/
+dist/
+*.map
+
+# ============================================
+# IDE / Editor files
+# ============================================
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Eclipse / STS
+.classpath
+.project
+.settings/
+.apt_generated
+.factorypath
+.springBeans
+.sts4-cache/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# ============================================
+# OS Files
+# ============================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+
+# ============================================
+# Environment & Configuration
+# ============================================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+application-local.yml
+application-dev.yml
+application-prod.yml
+
+# ============================================
+# Logs & Temporary Files
+# ============================================
+*.log
+logs/
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# ============================================
+# Uploads & User Content
+# ============================================
+# Uploaded files (PDFs, images, etc.)
+uploads/
+*.pdf
+!**/public/**/*.pdf
+!**/src/assets/**/*.pdf
+
+# ============================================
+# Database
+# ============================================
+*.db
+*.sqlite
+*.sqlite3
+
+# ============================================
+# Testing
+# ============================================
+coverage/
+.nyc_output/
+*.lcov
+
+# ============================================
+# Miscellaneous
+# ============================================
+*.bak
+*.backup
+*.orig
+.cache/
+.temp/
+tmp/
+
